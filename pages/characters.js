@@ -14,7 +14,7 @@ export default function Characters() {
 
   return (
     <div>
-      <h1>Characters</h1>
+      <h1>Leo</h1>
 
       <ul>
         {JSON.stringify(horoscope.data.horoscope_data)}

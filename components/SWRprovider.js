@@ -1,5 +1,5 @@
 import { SWRConfig } from "swr";
-export const SWRProvider = ({ children }) => {
+const SWRProvider = ({ children }) => {
   return (
     <SWRConfig
       value={{
@@ -16,3 +16,5 @@ export const SWRProvider = ({ children }) => {
     </SWRConfig>
   );
 };
+
+export default SWRProvider;
