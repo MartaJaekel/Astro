@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const { Schema } = mongoose;
+const { Schema } = mongoose; // struktur um die Organisation der Daten zu definieren
 
 const signSchema = new Schema({
   name: {
