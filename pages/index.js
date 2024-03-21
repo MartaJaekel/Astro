@@ -5,6 +5,7 @@ import Select from "react-select";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Link from "next/link";
+import Characters from "./characters";
 
 export default function Home() {
   const [selectedSign, setSelectedSign] = useState();
@@ -34,6 +35,8 @@ export default function Home() {
           onChange={handleChange}
           placeholder="search your horoscope"
         ></Select>
+
+        {/* Render Characters component when a sign is selected */}
         <StyledList>
           {data.map((sign) => (
             <li key={sign._id}>

@@ -7,14 +7,14 @@ export default function Characters() {
     data: horoscope,
     error,
     isLoading,
-  } = useSWR("/api/horoscope/leo?date=today");
+  } = useSWR(`/api/horoscope/pisces?date=today`);
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
   return (
     <div>
-      <h1>Leo</h1>
+      <h1>Pisces</h1>
 
       <ul>
         {JSON.stringify(horoscope.data.horoscope_data)}
@@ -30,3 +30,4 @@ export default function Characters() {
     </div>
   );
 }
+// converting data into a string so it can be displayed on the page
