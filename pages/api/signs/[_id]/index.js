@@ -1,10 +1,10 @@
 import dbConnect from "@/db/connect";
 import Sign from "@/db/models/signs";
 export default async function handler(request, response) {
-  await dbConnect();
+  await dbConnect(); // connect to the database
   const { _id } = request.query;
   console.log("id:", _id);
-  if (request.method === "GET") {
+  if (request.method === "GET") { //if method is GET
     // await Sign.find({
     //   id: id,
     // });

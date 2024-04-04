@@ -1,33 +1,46 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import useSWR from "swr";
+import { useRouter } from "next/router";
+import styled from "styled-components";
 
 export default function Characters() {
-  const {
-    data: horoscope,
-    error,
-    isLoading,
-  } = useSWR(`/api/horoscope/pisces?date=today`);
+  const router = useRouter();
+  const { sign } = router.query;
+  const signs = [
+    "aries",
+    "taurus",
+    "gemini",
+    "cancer",
+    "leo",
+    "virgo",
+    "libra",
+    "scorpio",
+    "sagittarius",
+    "capricorn",
+    "aquarius",
+    "pisces",
+  ];
 
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+  const { data, error } = useSWR(
+    sign ? `/api/horoscope/${sign}?date=today` : null
+  );
+
+  if (error) return <div>Error: {error.message}</div>;
+  if (!data) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>Pisces</h1>
-
+    <StyledContent>
+      <h1>{sign}</h1>
       <ul>
-        {JSON.stringify(horoscope.data.horoscope_data)}
-        {/* {characters.map((character) => (
-          <li key={character._id}>
-            <img src={character.image} alt={character.name} />
-            <p>{character.name}</p>
-            <p>Status: {character.status}</p>
-            <p>Species: {character.species}</p>
-          </li>
-        ))} */}
+        <li>{JSON.stringify(data.horoscope_data)}</li>
       </ul>
-    </div>
+    </StyledContent>
   );
 }
-// converting data into a string so it can be displayed on the page
+const StyledContent = styled.div`
+  li {
+    font-size: 1.5rem;
+    list-style: none;
+  }
+`;

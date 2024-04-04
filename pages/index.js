@@ -19,7 +19,9 @@ export default function Home() {
     });
   const handleChange = (selectedOption) => {
     setSelectedSign(selectedOption);
-    router.push(`/signs/${selectedOption.value}`);
+    if (selectedOption.value) {
+      router.push(`/characters?sign=${selectedOption.value}`);
+    }
   };
 
   if (error) return <div>Error: {error.message}</div>;
@@ -28,7 +30,7 @@ export default function Home() {
   return (
     <>
       <Container>
-        <StyledLink href="characters">Horoscope</StyledLink>
+        <StyledTitle>Horoscope</StyledTitle>
         <Select
           options={options}
           value={selectedSign}
@@ -49,7 +51,7 @@ export default function Home() {
   );
 }
 
-const StyledLink = styled(Link)`
+const StyledTitle = styled.h1`
   text-decoration: none;
   color: black;
   cursor: pointer;
