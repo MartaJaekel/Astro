@@ -27,21 +27,37 @@ export default function DetailsPage() {
         <StyledContainer>
           <ContainerOne>
             <li>
-              Element:
+              <strong>Element:</strong>
               {sign.element}
             </li>
-            <li>Ruling Planet: {sign.rulingPlanet}</li>
-            <li>Symbol: {sign.symbol}</li>
-            <li>Compatibility: {sign.compatibility.join(", ")}</li>
-            <li>Lucky Numbers: {sign.luckyNumbers.join(", ")}</li>
+            <li>
+              <strong> Ruling Planet:</strong> {sign.rulingPlanet}
+            </li>
+            <li>
+              <strong>Symbol:</strong> {sign.symbol}
+            </li>
+            <li>
+              <strong>Compatibility:</strong> {sign.compatibility.join(", ")}
+            </li>
+            <li>
+              <strong>Lucky Numbers:</strong> {sign.luckyNumbers.join(", ")}
+            </li>
           </ContainerOne>
           <ContainerTwo>
-            <li>Lucky Color: {sign.luckyColor}</li>
-            <li>Lucky Day: {sign.luckyDay}</li>
-            <li>Strengths: {sign.strengths.join(", ")}</li>
-            <li>Weaknesses: {sign.weaknesses.join(", ")}</li>
-            <li className="special">Lucky Day: {sign.description}</li>
+            <li>
+              <strong>Lucky Color:</strong> {sign.luckyColor}
+            </li>
+            <li>
+              <strong>Lucky Day:</strong> {sign.luckyDay}
+            </li>
+            <li>
+              <strong>Strengths:</strong> {sign.strengths.join(", ")}
+            </li>
+            <li>
+              <strong>Weaknesses:</strong> {sign.weaknesses.join(", ")}
+            </li>
           </ContainerTwo>
+          <p>{sign.description}</p>
         </StyledContainer>
       </MainWrapper>
     </>
@@ -55,20 +71,29 @@ const MainWrapper = styled.div`
   }
 `;
 const ContainerOne = styled.ul`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
   li {
-    display: flex;
-    flex-direction: column;
     padding: 10px;
+    list-style-type: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #f8eded;
 
     font-family: didot;
   }
 `;
 const ContainerTwo = styled.ul`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
   li {
-    display: flex;
-    flex-direction: column;
     padding: 10px;
-
+    list-style-type: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #f8eded;
     font-family: didot;
   }
   .special {
@@ -90,6 +115,12 @@ const StyledImage = styled(Image)`
 `;
 const StyledContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  p {
+    font-family: didot;
+    font-size: 1.3rem;
+    padding: 20px;
+    background-color: #fdf8f8;
+  }
 `;
