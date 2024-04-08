@@ -7,40 +7,75 @@ import styled from "styled-components";
 export default function Characters() {
   const router = useRouter();
   const { sign } = router.query;
-  const signs = [
-    "aries",
-    "taurus",
-    "gemini",
-    "cancer",
-    "leo",
-    "virgo",
-    "libra",
-    "scorpio",
-    "sagittarius",
-    "capricorn",
-    "aquarius",
-    "pisces",
-  ];
+  const [selectDate, setSelectedDate] = useState("today");
 
   const { data, error } = useSWR(
-    sign ? `/api/horoscope/${sign}?date=today` : null
+    sign ? `/api/horoscope/${sign}?date=${selectDate}` : null
   );
 
   if (error) return <div>Error: {error.message}</div>;
   if (!data) return <div>Loading...</div>;
 
   return (
-    <StyledContent>
-      <h1>{sign}</h1>
-      <ul>
-        <li>{JSON.stringify(data.horoscope_data)}</li>
-      </ul>
-    </StyledContent>
+    <>
+      <StyledTitle>{sign}</StyledTitle>
+      <StyledSection>
+        <button
+          className={selectDate === "yesterday" ? "selected" : ""}
+          onClick={() => setSelectedDate("yesterday")}
+        >
+          Yesterday
+        </button>
+        <button
+          className={selectDate === "today" ? "selected" : ""}
+          onClick={() => setSelectedDate("today")}
+        >
+          Today
+        </button>
+        <button
+          className={selectDate === "tomorrow" ? "selected" : ""}
+          onClick={() => setSelectedDate("tomorrow")}
+        >
+          Tomorrow
+        </button>
+      </StyledSection>
+      <StyledContent>
+        <ul>
+          <li>{JSON.stringify(data.horoscope_data)}</li>
+        </ul>
+      </StyledContent>
+    </>
   );
 }
+const StyledTitle = styled.h1`
+  text-align: center;
+  font-size: 2rem;
+  font-family: didot;
+`;
 const StyledContent = styled.div`
+  margin-top: 2rem;
   li {
-    font-size: 1.5rem;
+    font-size: 1rem;
     list-style: none;
+    font-family: didot;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+`;
+const StyledSection = styled.section`
+  display: flex;
+  justify-content: space-around;
+  button {
+    border: 0.5px solid black;
+    width: 500px;
+    height: 50px;
+    background-color: #f8eded;
+    font-family: didot;
+    font-size: 1rem;
+  }
+  .selected {
+    background-color: white;
   }
 `;
