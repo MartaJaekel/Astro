@@ -119,7 +119,7 @@ const StyledContainer = styled.div`
   justify-content: center;
   p {
     font-family: didot;
-    font-size: 1.3rem;
+    font-size: 1rem;
     padding: 20px;
     background-color: #fdf8f8;
   }
