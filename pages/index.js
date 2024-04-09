@@ -1,80 +1,71 @@
-import styled from "styled-components";
-import SignCard from "../components/SignCard/SignCard";
-import useSWR from "swr";
-import Select from "react-select";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import Link from "next/link";
-import Characters from "./characters";
+import Image from "next/image";
+import styled from "styled-components";
+import { createGlobalStyle } from "styled-components";
+import keyframes from "styled-components";
 
-export default function Home() {
-  const [selectedSign, setSelectedSign] = useState();
-  const { data, error } = useSWR("/api/signs");
+export default function Welcome() {
   const router = useRouter();
-
-  const options =
-    data &&
-    data.map((sign) => {
-      return { value: sign.name, label: sign.name };
-    });
-  const handleChange = (selectedOption) => {
-    setSelectedSign(selectedOption);
-    if (selectedOption.value) {
-      router.push(`/characters?sign=${selectedOption.value}`);
-    }
+  const handleClick = () => {
+    router.push("/homepage");
   };
-
-  if (error) return <div>Error: {error.message}</div>;
-  if (!data || !Array.isArray(data)) return <div>Loading...</div>;
-
   return (
     <>
-      <Container>
-        <StyledTitle>Horoscope</StyledTitle>
-        <Select
-          options={options}
-          value={selectedSign}
-          onChange={handleChange}
-          placeholder="search your horoscope"
-        ></Select>
-
-        {/* Render Characters component when a sign is selected */}
-        <StyledList>
-          {data.map((sign) => (
-            <li key={sign._id}>
-              <SignCard sign={sign} />
-            </li>
-          ))}
-        </StyledList>
-      </Container>
+      <GlobalStyle />
+      <Background>
+        <h1>Welcome to Astro</h1>
+        <p>
+          Get your daily horoscope and learn more about your zodiac sign with
+          Astro
+        </p>
+        <button onClick={handleClick}>get started</button>
+      </Background>
     </>
   );
 }
 
-const StyledTitle = styled.h1`
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-  display: block;
-  text-align: center;
-  margin: 1rem 0;
-  font-size: 2rem;
-  font-family: didot;
-`;
-const StyledList = styled.ul`
+const Background = styled.div`
+  background-image: url("/images/stars.jpg");
+  background-size: 200% 100%;
+  
+  
+  height: 100vh;
+
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  list-style: none;
-`;
-const Container = styled.div`
-  width: 100%;
-  h1 {
-    text-align: center;
+  @keyframes scroll {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
   }
-  section {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
+  h1 {
+    font-size: 3rem;
+    font-family: didot;
+    color: white;}
+    p {
+      font-size: 1.5rem;
+      font-family: didot;
+      color: white;
+    }
+  }
+  button {
+    background-color: #f8eded;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    font-family: didot;
+    cursor: pointer;
+   
+`;
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 `;
