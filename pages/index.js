@@ -24,25 +24,22 @@ export default function Welcome() {
   );
 }
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`;
 const Background = styled.div`
   background-image: url("/images/stars.jpg");
-  background-size: 200% 100%;
-  
-  
+  background-size: cover;
   height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @keyframes scroll {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-50%);
-    }
-  }
+  
   h1 {
     font-size: 3rem;
     font-family: didot;
@@ -61,11 +58,4 @@ const Background = styled.div`
     font-family: didot;
     cursor: pointer;
    
-`;
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
 `;
