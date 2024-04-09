@@ -12,12 +12,17 @@ export default function Characters() {
   const { data, error } = useSWR(
     sign ? `/api/horoscope/${sign}?date=${selectDate}` : null
   );
-
+  const goBack = () => {
+    router.back();
+  };
   if (error) return <div>Error: {error.message}</div>;
   if (!data) return <div>Loading...</div>;
 
   return (
     <>
+      <a onClick={goBack}>
+        <img src="/images/arrow.svg" alt="Go back" height={25} width={25} />
+      </a>
       <StyledTitle>{sign}</StyledTitle>
       <StyledSection>
         <button
@@ -77,5 +82,8 @@ const StyledSection = styled.section`
   }
   .selected {
     background-color: white;
+  }
+  a {
+    position: absolute;
   }
 `;

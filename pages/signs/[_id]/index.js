@@ -11,12 +11,18 @@ export default function DetailsPage() {
   const { _id } = router.query;
   const { data: sign, isLoading, error } = useSWR(`/api/signs/${_id}`);
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
+  const goBack = () => {
+    router.back();
+  };
 
   return (
     <>
       <Link href={`signs/${_id}`} passHref></Link>
       <MainWrapper>
         <StyledImageWrapper>
+          <a onClick={goBack}>
+            <img src="/images/arrow.svg" alt="Go back" height={25} width={25} />
+          </a>
           <StyledImage
             src={`/images/${sign?.name.toLowerCase()}.jpeg`}
             width={200}
@@ -106,6 +112,12 @@ const StyledImageWrapper = styled.div`
   background-color: #724141;
   padding: 20px;
   background: linear-gradient(to right, #f8eded, #655c5c);
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+  }
 `;
 const StyledImage = styled(Image)`
   object-fit: cover;
