@@ -4,8 +4,6 @@ import useSWR from "swr";
 import Select from "react-select";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import Link from "next/link";
-import Characters from "./characters";
 
 export default function Home() {
   const [selectedSign, setSelectedSign] = useState();
@@ -31,21 +29,28 @@ export default function Home() {
     <>
       <Container>
         <StyledTitle>Horoscope</StyledTitle>
-        <Select
-          options={options}
-          value={selectedSign}
-          onChange={handleChange}
-          placeholder="search your horoscope"
-        ></Select>
-
-        {/* Render Characters component when a sign is selected */}
-        <StyledList>
-          {data.map((sign) => (
-            <li key={sign._id}>
-              <SignCard sign={sign} />
-            </li>
-          ))}
-        </StyledList>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <StyledSelect
+            options={options}
+            value={selectedSign}
+            onChange={handleChange}
+            placeholder="search your horoscope"
+          ></StyledSelect>
+          {/* Render Characters component when a sign is selected */}
+          <StyledList>
+            {data.map((sign) => (
+              <li key={sign._id}>
+                <SignCard sign={sign} />
+              </li>
+            ))}
+          </StyledList>
+        </div>
       </Container>
     </>
   );
@@ -66,6 +71,8 @@ const StyledList = styled.ul`
   flex-wrap: wrap;
   justify-content: center;
   list-style: none;
+  width: 100%;
+  padding: 0;
 `;
 const Container = styled.div`
   width: 100%;
@@ -77,4 +84,7 @@ const Container = styled.div`
     justify-content: center;
     margin: 1rem 0;
   }
+`;
+const StyledSelect = styled(Select)`
+  width: 90%;
 `;
