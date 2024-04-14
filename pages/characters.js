@@ -3,7 +3,7 @@ import useSWR from "swr";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { useSpring, animated } from "react-spring";
-
+import React from "react";
 export default function Characters() {
   const router = useRouter();
   const { sign } = router.query;
