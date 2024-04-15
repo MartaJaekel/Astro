@@ -5,7 +5,7 @@ import Select from "react-select";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import React from "react";
-
+import { keyframes } from "styled-components";
 export default function Home() {
   const [selectedSign, setSelectedSign] = useState();
   const { data, error } = useSWR("/api/signs");
@@ -51,7 +51,7 @@ export default function Home() {
             placeholder="search your horoscope"
           ></StyledSelect>
           <p>Choose your Zodiac Sign</p>
-          {/* Render Characters component when a sign is selected */}
+
           <StyledList>
             {data.map((sign) => (
               <li key={sign._id}>
@@ -64,6 +64,14 @@ export default function Home() {
     </>
   );
 }
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 const StyledNavigation = styled.nav`
   display: flex;
   justify-content: center;
@@ -73,6 +81,7 @@ const StyledNavigation = styled.nav`
   margin-bottom: 1rem;
   img {
     object-fit: contain;
+    animation: ${rotate} 30s linear infinite;
   }
 `;
 
@@ -99,6 +108,9 @@ const Container = styled.div`
     font-family: didot;
     color: black;
     margin-top: 2rem;
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
   }
 `;
 const StyledSelect = styled(Select)`
