@@ -21,7 +21,7 @@ export default function DetailsPage() {
       <MainWrapper>
         <StyledImageWrapper>
           <a onClick={goBack}>
-            <img src="/images/arrow.svg" alt="Go back" height={25} width={25} />
+            <img src="/images/arrow.svg" alt="Go back" height={30} width={30} />
           </a>
           <StyledImage
             src={`/images/${sign?.name.toLowerCase()}.jpeg`}
@@ -83,9 +83,8 @@ const ContainerOne = styled.ul`
   li {
     padding: 10px;
     list-style-type: none;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: #f8eded;
+
+    background-color: #e9e6d6;
 
     font-family: didot;
   }
@@ -97,9 +96,8 @@ const ContainerTwo = styled.ul`
   li {
     padding: 10px;
     list-style-type: none;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: #f8eded;
+
+    background-color: #e9e6d6;
     font-family: didot;
   }
   .special {
@@ -111,12 +109,11 @@ const StyledImageWrapper = styled.div`
   justify-content: center;
   background-color: #724141;
   padding: 20px;
-  background: linear-gradient(to right, #f8eded, #655c5c);
+  background: linear-gradient(to right, #b6ad8f, #eff5fb);
   a {
     position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px;
+    top: 15px;
+    left: 20px;
   }
 `;
 const StyledImage = styled(Image)`
@@ -133,6 +130,6 @@ const StyledContainer = styled.div`
     font-family: didot;
     font-size: 1rem;
     padding: 20px;
-    background-color: #fdf8f8;
+    background-color: #f3f1e1;
   }
 `;

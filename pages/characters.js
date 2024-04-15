@@ -2,7 +2,10 @@ import { useState } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import { keyframes } from "styled-components";
+
 import { useSpring, animated } from "react-spring";
+import { createGlobalStyle } from "styled-components";
 import React from "react";
 
 export default function Characters() {
@@ -39,81 +42,109 @@ export default function Characters() {
   const monthlyData = data.month;
   return (
     <>
-      <a onClick={goBack}>
-        <img src="/images/arrow.svg" alt="Go back" height={25} width={25} />
+      <GlobalStyle />
+      <a
+        onClick={goBack}
+        style={{ position: "absolute", top: "20px", left: "20px" }}
+      >
+        <img src="/images/arrow.svg" alt="Go back" height={30} width={30} />
       </a>
       <StyledWrapper>
         <StyledTitle>{sign}</StyledTitle>
-        <StyledHeader>Daily Horoscope</StyledHeader>
+        <SlideInContent>
+          <StyledHeader>Daily Horoscope</StyledHeader>
 
-        <StyledSection>
-          <button
-            className={selectDate === "yesterday" ? "selected" : ""}
-            onClick={() => setSelectedDate("yesterday")}
-          >
-            Yesterday <br />
-            <div>
-              <span>{yesterday}</span>
-            </div>
-          </button>
-          <button
-            className={selectDate === "today" ? "selected" : ""}
-            onClick={() => setSelectedDate("today")}
-          >
-            Today <br />
-            <div>
-              <span>{dayName}</span>
-            </div>
-          </button>
-          <button
-            className={selectDate === "tomorrow" ? "selected" : ""}
-            onClick={() => setSelectedDate("tomorrow")}
-          >
-            Tomorrow <br />
-            <div>
-              <span>{tomorrow}</span>
-            </div>
-          </button>
-        </StyledSection>
+          <StyledSection>
+            <button
+              className={selectDate === "yesterday" ? "selected" : ""}
+              onClick={() => setSelectedDate("yesterday")}
+            >
+              Yesterday <br />
+              <div>
+                <span>{yesterday}</span>
+              </div>
+            </button>
+            <button
+              className={selectDate === "today" ? "selected" : ""}
+              onClick={() => setSelectedDate("today")}
+            >
+              Today <br />
+              <div>
+                <span>{dayName}</span>
+              </div>
+            </button>
+            <button
+              className={selectDate === "tomorrow" ? "selected" : ""}
+              onClick={() => setSelectedDate("tomorrow")}
+            >
+              Tomorrow <br />
+              <div>
+                <span>{tomorrow}</span>
+              </div>
+            </button>
+          </StyledSection>
 
-        <StyledContent>
-          <p>{JSON.stringify(data.horoscope_data)}</p>
-        </StyledContent>
-        <StyledAdd>
-          <h2>Get the Horoscope for the week</h2>
-          <img
-            src="images/chevron.svg"
-            height={30}
-            width={30}
-            onClick={() => setShowHoroscope(!showHoroscope)}
-          ></img>
+          <StyledContent>
+            <p>{JSON.stringify(data.horoscope_data)}</p>
+          </StyledContent>
+          <StyledAdd>
+            <h2>Get the Horoscope for the week</h2>
+            <img
+              src="images/chevron.svg"
+              height={30}
+              width={30}
+              onClick={() => setShowHoroscope(!showHoroscope)}
+            ></img>
 
-          {showHoroscope && (
-            <animated.p style={animationProps}>
-              {weeklyData && JSON.stringify(weeklyData.horoscope_data)}
-            </animated.p>
-          )}
-          <h2>Get the Horoscope for the month</h2>
-          <img
-            src="images/chevron.svg"
-            height={30}
-            width={30}
-            onClick={() => setShowMonthlyHoroscope(!showMonthlyHoroscope)}
-          ></img>
-          {showMonthlyHoroscope && (
-            <animated.p style={monthlyAnimationProps}>
-              {monthlyData && JSON.stringify(monthlyData.horoscope_data)}
-            </animated.p>
-          )}
-        </StyledAdd>
+            {showHoroscope && (
+              <animated.p style={animationProps}>
+                {weeklyData && JSON.stringify(weeklyData.horoscope_data)}
+              </animated.p>
+            )}
+            <h2>Get the Horoscope for the month</h2>
+            <img
+              src="images/chevron.svg"
+              height={30}
+              width={30}
+              onClick={() => setShowMonthlyHoroscope(!showMonthlyHoroscope)}
+            ></img>
+            {showMonthlyHoroscope && (
+              <animated.p style={monthlyAnimationProps}>
+                {monthlyData && JSON.stringify(monthlyData.horoscope_data)}
+              </animated.p>
+            )}
+          </StyledAdd>
+        </SlideInContent>
       </StyledWrapper>
     </>
   );
 }
+const slideIn = keyframes`
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+`;
+const SlideInContent = styled.div`
+  animation: ${slideIn} 0.7s ease-out;
+`;
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: linear-gradient(to right,#b6ad8f,#eff5fb);
+  }
+`;
+
+// #e0ddcb p
+// #e5d6a3 #bfc7d0#b6ad8f, #eff5fb)
+
 const StyledHeader = styled.h2`
   font-size: 1.5rem;
   font-family: didot;
   margin-bottom: 2rem;
+  text-align: center;
+  text-decoration: underline;
 `;
 const StyledWrapper = styled.div`
   display: flex;
@@ -129,6 +160,7 @@ const StyledAdd = styled.div`
     text-align: center;
     font-size: 1.5rem;
     font-family: didot;
+    text-decoration: underline;
   }
   img {
     display: block;
@@ -139,17 +171,24 @@ const StyledAdd = styled.div`
     font-family: didot;
     border: 1px solid black;
     padding: 1.3rem;
-    background-color: #f8eded;
+    background-color: #e9e6d6;
     width: 50%;
     line-height: 1.5;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    @media (max-width: 480px) {
+      width: 90%;
+    }
   }
 `;
 const StyledTitle = styled.h1`
-  text-align: center;
   font-size: 3rem;
   font-family: didot;
-  border-box: 1px solid black;
+  margin-bottom: 2rem;
+
+  color: #4a4a4a; /* Dark gray */
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 `;
 const StyledContent = styled.div`
   display: flex;
@@ -161,10 +200,13 @@ const StyledContent = styled.div`
     font-family: didot;
     border: 1px solid black;
     padding: 1.3rem;
-    background-color: #f8eded;
+    background-color: #e9e6d6;
     width: 50%;
     line-height: 1.5;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    @media (max-width: 480px) {
+      width: 90%;
+    }
   }
   h1 {
     text-align: center;
@@ -176,11 +218,15 @@ const StyledSection = styled.div`
   margin: auto;
 
   width: 50%;
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+
   button {
     border: 0.5px solid black;
     width: 50%;
     height: 50px;
-    background-color: #f8eded;
+    background-color: #e9e6d6;
     font-family: didot;
     font-size: 1.2rem;
     color: grey;
