@@ -29,7 +29,6 @@ export default function Home() {
   return (
     <>
       <Container>
-        <StyledTitle>Horoscope</StyledTitle>
         <div
           style={{
             display: "flex",
@@ -37,12 +36,21 @@ export default function Home() {
             alignItems: "center",
           }}
         >
+          <StyledNavigation>
+            <img
+              src="/images/astrology.jpg"
+              width={300}
+              height={200}
+              obejct
+            ></img>
+          </StyledNavigation>
           <StyledSelect
             options={options}
             value={selectedSign}
             onChange={handleChange}
             placeholder="search your horoscope"
           ></StyledSelect>
+          <p>Choose your Zodiac Sign</p>
           {/* Render Characters component when a sign is selected */}
           <StyledList>
             {data.map((sign) => (
@@ -56,17 +64,18 @@ export default function Home() {
     </>
   );
 }
-
-const StyledTitle = styled.h1`
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-  display: block;
-  text-align: center;
-  margin: 1rem 0;
-  font-size: 2rem;
-  font-family: didot;
+const StyledNavigation = styled.nav`
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 1rem;
+  img {
+    object-fit: contain;
+  }
 `;
+
 const StyledList = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -84,6 +93,12 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     margin: 1rem 0;
+  }
+  p {
+    font-size: 2rem;
+    font-family: didot;
+    color: black;
+    margin-top: 2rem;
   }
 `;
 const StyledSelect = styled(Select)`

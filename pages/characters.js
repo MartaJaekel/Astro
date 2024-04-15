@@ -147,8 +147,9 @@ const StyledAdd = styled.div`
 `;
 const StyledTitle = styled.h1`
   text-align: center;
-  font-size: 2rem;
+  font-size: 3rem;
   font-family: didot;
+  border-box: 1px solid black;
 `;
 const StyledContent = styled.div`
   display: flex;
