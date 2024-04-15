@@ -4,6 +4,7 @@ import useSWR from "swr";
 import Select from "react-select";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import React from "react";
 
 export default function Home() {
   const [selectedSign, setSelectedSign] = useState();
