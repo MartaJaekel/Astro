@@ -7,6 +7,8 @@ import { useState } from "react";
 import React from "react";
 import Navigation from "../components/Navigation/Navigation";
 import {Sign} from "../types/sign";
+import { ActionMeta } from "react-select";
+
 
 
 
@@ -23,8 +25,10 @@ export default function Home() {
     });
     interface SelectedOption{
       value: string;
+      label: string; 
     }
-  const handleChange = (selectedOption: SelectedOption) => {
+  const handleChange = (newValue: unknown, _: ActionMeta<unknown>) => {
+    const selectedOption = newValue as SelectedOption;
     setSelectedSign(selectedOption);
     if (selectedOption.value) {
       router.push(`/characters?sign=${selectedOption.value}`);

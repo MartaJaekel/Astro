@@ -1,9 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
 
-export default async function handler(request, response) {
+export default async function handler(request: NextApiRequest, response: NextApiResponse) { 
   const { sign, date } = request.query; //extracting the sign and date from the query
-  const formatedDate = date?.toUpperCase();
+  let formatedDate ;
+  if (typeof date === "string") { // had to check that date is a string cause in the case of array Uppercase wouldnt work
+    formatedDate = date.toUpperCase();
+
+  }
+  
 
   const responseAPI = await fetch(
     `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${sign}&day=${formatedDate}`

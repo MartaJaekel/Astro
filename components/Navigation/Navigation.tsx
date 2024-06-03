@@ -1,29 +1,36 @@
 import { keyframes } from "styled-components";
 import styled from "styled-components";
+import Link from "next/link";
+import Image from "next/image";
 export default function Navigation() {
     return (
         <StyledNavigation>
             <Section>
                 <ul>
                     <li>
-                        <a href="/homepage">Home</a>
+                        <Link href="/homepage">Home</Link>
 
                     </li>
                     <li>
-                        <a href="/homepage">Horoscope</a>
+                        <Link href="/homepage">Horoscope</Link>
 
                     </li>
                     <li>
-                        <a href="/homepage">Astrology</a>
+                        <Link href="/homepage">Astrology</Link>
                     </li>
                 </ul>
             </Section>
-            <img
-              src="/images/astrology.jpg"
-              width={300}
-              height={200}
+            <StyledImage
+           
+            src="/images/astrology.jpg"
+alt="Astrology image"
+width={300}
+height={200}>
+              
+ 
+              </StyledImage>
             
-            ></img>
+            
           </StyledNavigation>
     );
 }
@@ -65,8 +72,9 @@ position : relative;
   width: 100%;
   height: 255px;
   margin-bottom: 1rem;
-  img {
-    object-fit: contain;
-    animation: ${rotate} 30s linear infinite;
-  }
+  
 `;
+const StyledImage = styled(Image)`
+object-fit: contain;
+    animation: ${rotate} 30s linear infinite;
+`
