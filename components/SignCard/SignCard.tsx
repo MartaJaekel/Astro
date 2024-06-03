@@ -2,14 +2,20 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
+import {Sign} from "../../types/sign";
 
-export default function SignCard({ sign }) {
+export interface SignCardProps {
+  sign : Sign;
+}
+
+
+export default function SignCard({ sign }: SignCardProps) {
   return (
     <>
       <Figure>
         <Image
           src={`/images/${sign?.name?.toLowerCase()}.jpeg`}
-          yeah
+         
           alt={sign?.name}
           width={200}
           height={200}
@@ -22,7 +28,7 @@ export default function SignCard({ sign }) {
   );
 }
 const Figure = styled.figure`
-  border: 3px solid black;
+  border: 3px solid #b2aaaa;
   border-radius: 10px;
 `;
 const StyledLink = styled(Link)`

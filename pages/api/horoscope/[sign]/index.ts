@@ -1,3 +1,6 @@
+import { NextApiRequest, NextApiResponse } from 'next';
+
+
 export default async function handler(request, response) {
   const { sign, date } = request.query; //extracting the sign and date from the query
   const formatedDate = date?.toUpperCase();

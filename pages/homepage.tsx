@@ -5,18 +5,26 @@ import Select from "react-select";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import React from "react";
-import { keyframes } from "styled-components";
+import Navigation from "../components/Navigation/Navigation";
+import {Sign} from "../types/sign";
+
+
+
+
 export default function Home() {
-  const [selectedSign, setSelectedSign] = useState();
+  const [selectedSign, setSelectedSign] = useState<SelectedOption | null>(null);
   const { data, error } = useSWR("/api/signs");
   const router = useRouter();
 
   const options =
     data &&
-    data.map((sign) => {
+    data.map((sign: Sign) => {
       return { value: sign.name, label: sign.name };
     });
-  const handleChange = (selectedOption) => {
+    interface SelectedOption{
+      value: string;
+    }
+  const handleChange = (selectedOption: SelectedOption) => {
     setSelectedSign(selectedOption);
     if (selectedOption.value) {
       router.push(`/characters?sign=${selectedOption.value}`);
@@ -25,6 +33,8 @@ export default function Home() {
 
   if (error) return <div>Error: {error.message}</div>;
   if (!data || !Array.isArray(data)) return <div>Loading...</div>;
+  
+ 
 
   return (
     <>
@@ -36,21 +46,18 @@ export default function Home() {
             alignItems: "center",
           }}
         >
-          <StyledNavigation>
-            <img
-              src="/images/astrology.jpg"
-              width={300}
-              height={200}
-              obejct
-            ></img>
-          </StyledNavigation>
+          <Navigation />
+          
           <StyledSelect
             options={options}
             value={selectedSign}
             onChange={handleChange}
             placeholder="search your horoscope"
           ></StyledSelect>
-          <p>Choose your Zodiac Sign</p>
+          <StyledContainer>
+          <StyledParagraph>
+          <p>Get to know more about the Zodiac</p>
+          </StyledParagraph>
 
           <StyledList>
             {data.map((sign) => (
@@ -59,39 +66,32 @@ export default function Home() {
               </li>
             ))}
           </StyledList>
+          </StyledContainer>
         </div>
       </Container>
     </>
   );
 }
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-const StyledNavigation = styled.nav`
+const StyledContainer = styled.div`
+
   display: flex;
-  justify-content: center;
-  background-color: white;
-  width: 100%;
-  height: 200px;
-  margin-bottom: 1rem;
-  img {
-    object-fit: contain;
-    animation: ${rotate} 30s linear infinite;
-  }
-`;
+  flex-direction: column;
+  align-items: center;`
+const StyledParagraph = styled.div`
+margin: 2rem 0 2rem 0 ;
+
+p {
+  color: red;
+}`
+
+
 
 const StyledList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   list-style: none;
-  width: 100%;
-  padding: 0;
+  display: grid;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
 `;
 const Container = styled.div`
   width: 100%;

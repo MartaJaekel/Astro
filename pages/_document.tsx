@@ -2,6 +2,8 @@ import Document from "next/document";
 import { ServerStyleSheet } from "styled-components";
 import { Html, Head, Main, NextScript } from "next/document";
 import React from "react";
+
+
 class MyDocument extends Document {
   // collect and render the server-side generated styles from styled-components.
   static async getInitialProps(ctx) {

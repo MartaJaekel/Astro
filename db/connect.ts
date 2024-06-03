@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
-
+declare global {
+  var mongoose: any; // any because its a  complex object and its unpractical to define a detailed type for it
+}
 const MONGODB_URI = process.env.MONGODB_URI;
 
 console.log("MONGODB_URI:", MONGODB_URI);
@@ -30,11 +32,14 @@ async function dbConnect() {
     const opts = {
       bufferCommands: false,
     };
+if (MONGODB_URI){ // checks if MONGODB_URI is defined cause in ts you cant pass a value  that is possibly
+  //undefined to a function that expects a defined value.
+
 
     cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
       return mongoose;
     });
-  }
+  }}
 
   try {
     cached.conn = await cached.promise;

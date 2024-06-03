@@ -42,13 +42,13 @@ const Content = styled.div`
   }
 
   button {
-    background-color: #f8eded;
+    background-color: white;
+    color: black;
     border: none;
     padding: 10px 20px;
-    font-size: 1.5rem;
-    font-family: didot;
     cursor: pointer;
-    margin-top: 70px;
+    margin-top: 20px;
+    font-size: 1.2rem;
   }
   @media (max-width: 480px) {
     top: 50%;

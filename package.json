@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-spring/web": "^9.7.3",
+    "mongodb": "^6.6.2",
     "mongoose": "^8.2.1",
     "next": "14.1.1",
     "react": "^18",
@@ -20,7 +21,10 @@
     "swr": "^2.2.5"
   },
   "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/react": "^18.3.3",
     "eslint": "^8",
-    "eslint-config-next": "14.1.1"
+    "eslint-config-next": "14.1.1",
+    "typescript": "^5.4.5"
   }
 }

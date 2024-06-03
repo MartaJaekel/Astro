@@ -1,6 +1,7 @@
 import dbConnect from "@/db/connect";
 import Sign from "@/db/models/signs";
-export default async function handler(request, response) {
+import { NextApiRequest, NextApiResponse } from "next";
+export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   await dbConnect();
   if (request.method === "GET") {//alle daten aus der datenbank holen
     const signs = await Sign.find();
