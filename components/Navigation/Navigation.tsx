@@ -18,6 +18,9 @@ export default function Navigation() {
                     <li>
                         <Link href="/homepage">Astrology</Link>
                     </li>
+                    <li> 
+                        <Link href="/homepage">Quiz</Link>
+                    </li>
                 </ul>
             </Section>
             <StyledImage

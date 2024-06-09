@@ -42,7 +42,7 @@ export default function Characters() {
   const monthlyData = data.month;
   return (
     <>
-      <GlobalStyle />
+     
       <a
         onClick={goBack}
         style={{ position: "absolute", top: "20px", left: "20px" }}
@@ -130,11 +130,7 @@ const slideIn = keyframes`
 const SlideInContent = styled.div`
   animation: ${slideIn} 0.7s ease-out;
 `;
-const GlobalStyle = createGlobalStyle`
-  body {
-    background: linear-gradient(to right,#b6ad8f,#eff5fb);
-  }
-`;
+
 
 // #e0ddcb p
 // #e5d6a3 #bfc7d0#b6ad8f, #eff5fb)
