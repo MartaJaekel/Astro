@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { keyframes } from "styled-components";
 
 import { useSpring, animated } from "react-spring";
-import { createGlobalStyle } from "styled-components";
+
 import React from "react";
 
 export default function Characters() {

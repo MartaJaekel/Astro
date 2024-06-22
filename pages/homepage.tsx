@@ -13,6 +13,7 @@ import { ActionMeta } from "react-select";
 
 
 
+
 export default function Home() {
   const [selectedSign, setSelectedSign] = useState<SelectedOption | null>(null);
   const { data, error } = useSWR("/api/signs");

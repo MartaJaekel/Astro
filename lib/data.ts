@@ -1,4 +1,6 @@
- const data = [
+ import { QuizItem } from "../types/quiz";
+ 
+ const data: QuizItem[] = [
   {
     id: 1,
     question: "What is the first sign of the zodiac?",
