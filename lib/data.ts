@@ -1,6 +1,7 @@
  import { QuizItem } from "../types/quiz";
  
- const data: QuizItem[] = [
+const data: QuizItem[] = [
+
   {
     id: 1,
     question: "What is the first sign of the zodiac?",
