@@ -17,7 +17,7 @@ export default function Navigation() {
             <Link href="/homepage">Astrology</Link>
           </li>
           <li>
-            <Link href="/quiz/[id].tsx">Quiz</Link>
+            <Link href="/quiz">Quiz</Link>
           </li>
         </ul>
       </Section>
