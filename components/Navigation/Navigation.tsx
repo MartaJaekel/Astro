@@ -1,22 +1,19 @@
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
 
 export default function Navigation() {
   return (
     <StyledNavigation>
       <Part>
         <button>
-       <Image src="/svg/moon.svg" alt="Astrology image" width={40} height={40}></Image>
-       </button>
+          <Image
+            src="/svg/moon.svg"
+            alt="Astrology image"
+            width={40}
+            height={40}
+          ></Image>
+        </button>
         <h1>Astro</h1>
       </Part>
       <Section>
@@ -33,7 +30,7 @@ export default function Navigation() {
           </li>
         </ul>
       </Section>
-     
+
       {/* <StyledImage
         src="/images/astrology.jpg"
         alt="Astrology image"
@@ -44,9 +41,9 @@ export default function Navigation() {
   );
 }
 const Part = styled.div`
-display: flex;
-flex-direction: row;
-gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
   position: absolute;
   left: 2%;
   top: 15%;

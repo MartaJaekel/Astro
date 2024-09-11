@@ -23,8 +23,7 @@ export default function Astrology() {
             <h1>Astrology</h1>
             <StyledDiv>
               <p>
-                {" "}
-                The word "astrology" is derived from the Greek terms for{" "}
+                The word <strong>&quot;astrology&quot;</strong> is derived from the Greek terms for
                 <strong> &quot;star&quot;</strong>
                 (ἄστρον, astron) and <strong>&quot; word &quot; </strong>(λόγος,
                 logos). Astrology studies the movement and positioning of the
@@ -58,7 +57,8 @@ export default function Astrology() {
             <Main></Main>
           </Section>
           <Quote>
-          'The stars are speaking to us- astrology teaches us how to listen."
+            &quot; The stars are speaking to us- astrology teaches us how to
+            listen.&quot;
           </Quote>
           <Content>
             <More>

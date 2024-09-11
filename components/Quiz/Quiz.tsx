@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import data from "../../lib/data";
-import { set } from "mongoose";
+
 
 
 export default function Quiz() {
