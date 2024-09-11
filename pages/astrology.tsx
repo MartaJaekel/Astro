@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import React from "react";
 
-
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import Layout from "@/components/Layout/Layout";
@@ -26,11 +25,11 @@ export default function Astrology() {
               <p>
                 {" "}
                 The word "astrology" is derived from the Greek terms for{" "}
-                <strong> "star"</strong>
-                (ἄστρον, astron) and <strong> "word" </strong>(λόγος, logos).
-                Astrology studies the movement and positioning of the stars and
-                planets around the earth and it is essentially based on
-                mathematical calculations and real phenomena in the sky.
+                <strong> &quot;star&quot;</strong>
+                (ἄστρον, astron) and <strong>&quot; word &quot; </strong>(λόγος,
+                logos). Astrology studies the movement and positioning of the
+                stars and planets around the earth and it is essentially based
+                on mathematical calculations and real phenomena in the sky.
               </p>
               <Div>
                 <Image
@@ -40,8 +39,6 @@ export default function Astrology() {
                   height={100}
                 />
               </Div>
-
-             
             </StyledDiv>
             <StyledDivTwo>
               <p>
@@ -58,83 +55,111 @@ export default function Astrology() {
               </p>
             </StyledDivTwo>
 
-            <Main>
-              
-            </Main>
-           
+            <Main></Main>
           </Section>
           <Quote>
-              "The stars are speaking to us- astrology teaches us how to
-              listen."
-            </Quote>
+          'The stars are speaking to us- astrology teaches us how to listen."
+          </Quote>
           <Content>
-           
             <More>
-            <Card style={{ backgroundColor: "rgb(252 249 249)", maxWidth: "480px", flex: 1 }}>
-  <div style={{
-    display: 'grid',
-    gridTemplateRows: 'auto 1fr auto', // Adjust based on content size
-    gridTemplateAreas: `
+              <Card
+                style={{
+                  backgroundColor: "rgb(252 249 249)",
+                  maxWidth: "480px",
+                  flex: 1,
+                }}
+              >
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateRows: "auto 1fr auto", // Adjust based on content size
+                    gridTemplateAreas: `
       "header"
       "content"
       "footer"
     `,
-    gap: '20px' // Spacing between grid items
-  }}>
-    <CardHeader style={{ fontWeight: "bold", gridArea: 'header' }}>
-      <h1 style={{ fontSize: "1.3rem" }}>The Sun Sign</h1>
-      <ImageContainer>
-        <Image src="/svg/sun.svg" height={40} width={40} alt="sun" />
-      </ImageContainer>
-      <br />
-      <span style={{ color: "#b3acac" }}>Our expression, sanity and joy.</span>
-    </CardHeader>
-    <CardContent style={{ gridArea: 'content' }}>
-      <strong>The Sun</strong> is our basic personality, identity,
-      ego, and consciousness. The journey connected to the Sun is
-      discovering how we can grow our unobstructed, fullest
-      expression. Our Sun indicates how we can best feed our spirit,
-      and also, how we are prone to unhealthy patterns.
-    </CardContent>
-    {/* Example footer area, adjust as needed */}
-    <div style={{ gridArea: 'footer' }}>
-      {/* Footer content here */}
-    </div>
-  </div>
-</Card>
-<Card style={{ backgroundColor: "rgb(252 249 249)", maxWidth: "480px", flex: 1 }}>
-  <div style={{
-    display: 'grid',
-    gridTemplateRows: 'auto 1fr auto', // Adjust based on content size
-    gridTemplateAreas: `
+                    gap: "20px", // Spacing between grid items
+                  }}
+                >
+                  <CardHeader
+                    style={{ fontWeight: "bold", gridArea: "header" }}
+                  >
+                    <h1 style={{ fontSize: "1.3rem" }}>The Sun Sign</h1>
+                    <ImageContainer>
+                      <Image
+                        src="/svg/sun.svg"
+                        height={40}
+                        width={40}
+                        alt="sun"
+                      />
+                    </ImageContainer>
+                    <br />
+                    <span style={{ color: "#b3acac" }}>
+                      Our expression, sanity and joy.
+                    </span>
+                  </CardHeader>
+                  <CardContent style={{ gridArea: "content" }}>
+                    <strong>The Sun</strong> is our basic personality, identity,
+                    ego, and consciousness. The journey connected to the Sun is
+                    discovering how we can grow our unobstructed, fullest
+                    expression. Our Sun indicates how we can best feed our
+                    spirit, and also, how we are prone to unhealthy patterns.
+                  </CardContent>
+                  {/* Example footer area, adjust as needed */}
+                  <div style={{ gridArea: "footer" }}>
+                    {/* Footer content here */}
+                  </div>
+                </div>
+              </Card>
+              <Card
+                style={{
+                  backgroundColor: "rgb(252 249 249)",
+                  maxWidth: "480px",
+                  flex: 1,
+                }}
+              >
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateRows: "auto 1fr auto", // Adjust based on content size
+                    gridTemplateAreas: `
       "header"
       "content"
       "footer"
     `,
-    gap: '20px' // Spacing between grid items
-  }}>
-    <CardHeader style={{ fontWeight: "bold", gridArea: 'header' }}>
-      <h1 style={{ fontSize: "1.3rem" }}>The Moon</h1>
-      <ImageContainer>
-      <Image src="/svg/fullmoon.svg" height={25} width={25} alt="sun"/>
-      </ImageContainer>
-      <br />
-      <span style={{ color: "#b3acac" }}>Our Emotions, Sensitivity, and Subconscious.</span>
-    </CardHeader>
-    <CardContent style={{ gridArea: 'content' }}>
-    <strong>The Moon</strong> represents our inner psyche and
-                  emotional nature. Some astrologers say that the Sun is how we
-                  see our selfs, while the Moon is who we really are. It is the
-                  emotional backdrop for all what we do, ruling our instincts
-                  and vulnerability.
-      
-    </CardContent>
-    {/* Example footer area, adjust as needed */}
-    <div style={{ gridArea: 'footer' }}>
-      {/* Footer content here */}
-    </div>
-  </div>
-</Card>
+                    gap: "20px", // Spacing between grid items
+                  }}
+                >
+                  <CardHeader
+                    style={{ fontWeight: "bold", gridArea: "header" }}
+                  >
+                    <h1 style={{ fontSize: "1.3rem" }}>The Moon</h1>
+                    <ImageContainer>
+                      <Image
+                        src="/svg/fullmoon.svg"
+                        height={25}
+                        width={25}
+                        alt="sun"
+                      />
+                    </ImageContainer>
+                    <br />
+                    <span style={{ color: "#b3acac" }}>
+                      Our Emotions, Sensitivity, and Subconscious.
+                    </span>
+                  </CardHeader>
+                  <CardContent style={{ gridArea: "content" }}>
+                    <strong>The Moon</strong> represents our inner psyche and
+                    emotional nature. Some astrologers say that the Sun is how
+                    we see our selfs, while the Moon is who we really are. It is
+                    the emotional backdrop for all what we do, ruling our
+                    instincts and vulnerability.
+                  </CardContent>
+                  {/* Example footer area, adjust as needed */}
+                  <div style={{ gridArea: "footer" }}>
+                    {/* Footer content here */}
+                  </div>
+                </div>
+              </Card>
 
               {/* <Card style={{backgroundColor:"rgb(252 249 249)", maxWidth:"480px", flex: 1}}>
                 <CardHeader style={{fontWeight: "bold"}}>
@@ -173,40 +198,56 @@ export default function Astrology() {
                   superficial aspects of ourselfs.
                 </CardContent>
               </Card> */}
-              <Card style={{ backgroundColor: "rgb(252 249 249)", maxWidth: "480px", flex: 1 }}>
-  <div style={{
-    display: 'grid',
-    gridTemplateRows: 'auto 1fr auto', // Adjust based on content size
-    gridTemplateAreas: `
+              <Card
+                style={{
+                  backgroundColor: "rgb(252 249 249)",
+                  maxWidth: "480px",
+                  flex: 1,
+                }}
+              >
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateRows: "auto 1fr auto", // Adjust based on content size
+                    gridTemplateAreas: `
       "header"
       "content"
       "footer"
     `,
-    gap: '20px' // Spacing between grid items
-  }}>
-    <CardHeader style={{ fontWeight: "bold", gridArea: 'header' }}>
-    <h1 style={{fontSize: "1.3rem"}}>The Ascendant</h1>
-      <ImageContainer>
-      <Image src="/svg/ascendant.svg" height={25} width={25} alt="sun"/>
-      </ImageContainer>
-      <br />
-      <span style={{color:"#b3acac"}}>
-                  Our Outermost Layer, First Impression,
-                  <br />
-                  and Physical Appereance</span>
-    </CardHeader>
-    <CardContent style={{ gridArea: 'content' }}>
-    <strong>Our Ascendant</strong>, or Rising Sign, describes our
-                  outermost layer and how make a first impression, so how others
-                  see us. It tells us us about the mask we wear and the more
-                  superficial aspects of ourselfs.
-    </CardContent>
-    {/* Example footer area, adjust as needed */}
-    <div style={{ gridArea: 'footer' }}>
-      {/* Footer content here */}
-    </div>
-  </div>
-</Card>
+                    gap: "20px", // Spacing between grid items
+                  }}
+                >
+                  <CardHeader
+                    style={{ fontWeight: "bold", gridArea: "header" }}
+                  >
+                    <h1 style={{ fontSize: "1.3rem" }}>The Ascendant</h1>
+                    <ImageContainer>
+                      <Image
+                        src="/svg/ascendant.svg"
+                        height={25}
+                        width={25}
+                        alt="sun"
+                      />
+                    </ImageContainer>
+                    <br />
+                    <span style={{ color: "#b3acac" }}>
+                      Our Outermost Layer, First Impression,
+                      <br />
+                      and Physical Appereance
+                    </span>
+                  </CardHeader>
+                  <CardContent style={{ gridArea: "content" }}>
+                    <strong>Our Ascendant</strong>, or Rising Sign, describes
+                    our outermost layer and how make a first impression, so how
+                    others see us. It tells us us about the mask we wear and the
+                    more superficial aspects of ourselfs.
+                  </CardContent>
+                  {/* Example footer area, adjust as needed */}
+                  <div style={{ gridArea: "footer" }}>
+                    {/* Footer content here */}
+                  </div>
+                </div>
+              </Card>
             </More>
           </Content>
         </Wrapper>
@@ -216,7 +257,8 @@ export default function Astrology() {
 }
 const ImageContainer = styled.div`
   display: flex;
-  justify-content: center;`
+  justify-content: center;
+`;
 const StyledDivTwo = styled.div`
   max-width: 480px;
   letter-spacing: 0;
@@ -242,7 +284,6 @@ const Div = styled.div`
   margin: 20px;
 `;
 const Quote = styled.div`
-
   font-size: 1.5rem;
   font-style: italic;
 `;
@@ -253,9 +294,7 @@ const More = styled.div`
 
   gap: 3rem;
   margin-bottom: 2rem;
-
 `;
-
 
 const Main = styled.div`
   display: flex;
@@ -264,7 +303,6 @@ const Main = styled.div`
   gap: 1rem;
 `;
 const Content = styled.div`
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -317,7 +355,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-gap: 5rem;
+  gap: 5rem;
   h1 {
     font-size: 2.5rem;
   }
