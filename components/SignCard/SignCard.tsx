@@ -4,6 +4,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import {Sign} from "../../types/sign";
 
+
 export interface SignCardProps {
   sign : Sign;
 }
