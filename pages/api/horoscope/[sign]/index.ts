@@ -9,7 +9,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
   }
   
-
+//fetch making http get request to horoscope api 
   const responseAPI = await fetch(
     `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${sign}&day=${formatedDate}`
   );

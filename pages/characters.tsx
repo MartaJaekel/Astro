@@ -2,9 +2,10 @@ import { useState } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { keyframes } from "styled-components";
+// import { keyframes } from "styled-components";
+import { format, subDays, addDays } from "date-fns";
 
-import { useSpring, animated } from "react-spring";
+// import { useSpring, animated } from "react-spring";
 
 import React from "react";
 
@@ -12,15 +13,15 @@ export default function Characters() {
   const router = useRouter();
   const { sign } = router.query;
   const [selectDate, setSelectedDate] = useState("today");
-  const [showHoroscope, setShowHoroscope] = useState(false);
-  const [showMonthlyHoroscope, setShowMonthlyHoroscope] = useState(false);
+  // const [showHoroscope, setShowHoroscope] = useState(false);
+  // const [showMonthlyHoroscope, setShowMonthlyHoroscope] = useState(false);
 
-  const animationProps = useSpring({
-    transform: showHoroscope ? "translateY(0)" : "translateY(100%)",
-  });
-  const monthlyAnimationProps = useSpring({
-    transform: showMonthlyHoroscope ? "translateY(0)" : "translateY(100%)",
-  });
+  // const animationProps = useSpring({
+  //   transform: showHoroscope ? "translateY(0)" : "translateY(100%)",
+  // });
+  // const monthlyAnimationProps = useSpring({
+  //   transform: showMonthlyHoroscope ? "translateY(0)" : "translateY(100%)",
+  // });
 
   const { data, error } = useSWR(
     sign ? `/api/horoscope/${sign}?date=${selectDate}` : null
@@ -33,16 +34,14 @@ export default function Characters() {
   if (!data) return <div>Loading...</div>;
 
   const date = new Date();
-  const dayName = date.getDate();
-  date.setDate(date.getDate() - 1);
-  date.setDate(date.getDate() + 1);
-  const yesterday = date.getDate() - 1;
-  const tomorrow = date.getDate() + 1;
+  // day name and number of the day
+  const dayName = format(date, "EE dd");
+  const yesterday = format(subDays(date, 1), "EE dd");
+  const tomorrow = format(addDays(date, 1), "EE dd");
   const weeklyData = data.week;
   const monthlyData = data.month;
   return (
     <>
-     
       <a
         onClick={goBack}
         style={{ position: "absolute", top: "20px", left: "20px" }}
@@ -51,7 +50,7 @@ export default function Characters() {
       </a>
       <StyledWrapper>
         <StyledTitle>{sign}</StyledTitle>
-        <SlideInContent>
+        {/* <SlideInContent> */}
           <StyledHeader>Daily Horoscope</StyledHeader>
 
           <StyledSection>
@@ -88,49 +87,52 @@ export default function Characters() {
             <p>{JSON.stringify(data.horoscope_data)}</p>
           </StyledContent>
           <StyledAdd>
-            <h2>Get the Horoscope for the week</h2>
-            <img
+            <h2> Horoscope for the week</h2>
+            {/* <img
               src="images/chevron.svg"
               height={30}
               width={30}
               onClick={() => setShowHoroscope(!showHoroscope)}
-            ></img>
+            ></img> */}
 
-            {showHoroscope && (
-              <animated.p style={animationProps}>
+            {/* {showHoroscope && (
+              <animated.p style={animationProps}> */}
+              <p>
                 {weeklyData && JSON.stringify(weeklyData.horoscope_data)}
-              </animated.p>
-            )}
-            <h2>Get the Horoscope for the month</h2>
-            <img
+                </p>
+              {/* </animated.p> */}
+            {/* )} */}
+            <h2> Horoscope for the month</h2>
+            {/* <img
               src="images/chevron.svg"
               height={30}
               width={30}
               onClick={() => setShowMonthlyHoroscope(!showMonthlyHoroscope)}
-            ></img>
-            {showMonthlyHoroscope && (
-              <animated.p style={monthlyAnimationProps}>
+            ></img> */}
+            {/* {showMonthlyHoroscope && ( */}
+              {/* <animated.p style={monthlyAnimationProps}> */}
+              <p>
                 {monthlyData && JSON.stringify(monthlyData.horoscope_data)}
-              </animated.p>
-            )}
+                </p>
+              {/* </animated.p>
+            )} */}
           </StyledAdd>
-        </SlideInContent>
+        {/* </SlideInContent> */}
       </StyledWrapper>
     </>
   );
 }
-const slideIn = keyframes`
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-`;
-const SlideInContent = styled.div`
-  animation: ${slideIn} 0.7s ease-out;
-`;
-
+// const slideIn = keyframes`
+//   from {
+//     transform: translateY(100%);
+//   }
+//   to {
+//     transform: translateY(0);
+//   }
+// `;
+// const SlideInContent = styled.div`
+//   animation: ${slideIn} 0.7s ease-out;
+// `;
 
 // #e0ddcb p
 // #e5d6a3 #bfc7d0#b6ad8f, #eff5fb)
@@ -141,6 +143,7 @@ const StyledHeader = styled.h2`
   margin-bottom: 2rem;
   text-align: center;
   text-decoration: underline;
+  color: #c0afaf;
 `;
 const StyledWrapper = styled.div`
   display: flex;
@@ -157,6 +160,7 @@ const StyledAdd = styled.div`
     font-size: 1.5rem;
     font-family: didot;
     text-decoration: underline;
+    color: #c0afaf;
   }
   img {
     display: block;
@@ -165,12 +169,12 @@ const StyledAdd = styled.div`
   p {
     font-size: 1rem;
     font-family: didot;
-    border: 1px solid black;
+   
     padding: 1.3rem;
-    background-color: #e9e6d6;
+    background-color: #ffffff;
     width: 50%;
     line-height: 1.5;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+  
     @media (max-width: 480px) {
       width: 90%;
     }
@@ -194,12 +198,11 @@ const StyledContent = styled.div`
   p {
     font-size: 1rem;
     font-family: didot;
-    border: 1px solid black;
     padding: 1.3rem;
-    background-color: #e9e6d6;
+    background-color: #ffffff;
     width: 50%;
     line-height: 1.5;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    
     @media (max-width: 480px) {
       width: 90%;
     }
@@ -222,7 +225,7 @@ const StyledSection = styled.div`
     border: 0.5px solid black;
     width: 50%;
     height: 50px;
-    background-color: #e9e6d6;
+    background-color:  #ffffff;
     font-family: didot;
     font-size: 1.2rem;
     color: grey;

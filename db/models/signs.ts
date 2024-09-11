@@ -46,6 +46,16 @@ const signSchema = new Schema({
     type: String,
     required: true,
   },
+  strength: {
+    type: String,
+    required: true,
+  
+  },
+  weakness: {
+    type: String,
+    required: true,
+  },
+  
 });
 const Sign = mongoose.models.Sign || mongoose.model("Sign", signSchema);
 export default Sign;

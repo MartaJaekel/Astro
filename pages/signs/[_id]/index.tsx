@@ -2,53 +2,123 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import styled from "styled-components";
 import React from "react";
+import { Button } from "@/components/ui/button";
 
+import Layout from "@/components/Layout/Layout";
 
 export default function DetailsPage() {
   const router = useRouter();
   const { isReady } = router;
   const { _id } = router.query;
-  const { data: sign, isLoading, error } = useSWR(`/api/signs/${_id}`);
+  const { data: signs, isLoading, error } = useSWR(`/api/signs/${_id}`);
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
-
+  const handleClick = () => {
+    router.push(`/horoscope?sign=${signs.name}`);
+  }
   return (
     <>
+    <Layout>
+  
+      
     <StyledContainer>
-    
-      <StyledWrapper>
-        <StyledName>
-          <h1>{sign.name}</h1>
+    <StyledName>
+   
+          <h1>{signs.name}</h1>
         </StyledName>
+        <img src={`/svg/${signs.name.toLowerCase()}.svg`} alt={`Description of ${signs.name}`} height={50} width={50} style={{marginTop:"30px"}} />
+      <StyledWrapper>
+        
         <Section>
-          <ImageContainer>
-          <h1>image</h1>
-          </ImageContainer>
+          
           <StyledDiv >
             <h4>Symbol</h4>
-            <p>{sign.symbol}</p>
+            <p>{signs.symbol}</p>
 
           </StyledDiv>
           <StyledDiv>
             <h4>Element</h4>
-            <p>{sign.element}</p>
+            <p>{signs.element}</p>
 
           </StyledDiv>
           <StyledDiv>
             <h4>Planet</h4>
-            <p>{sign.planet}</p>
+            <p>{signs.rulingPlanet}</p>
           </StyledDiv>
           <StyledDiv>
             <h4>Lucky Day</h4>
-            <p>{sign.luckyDay}</p>
+            <p>{signs.luckyDay}</p>
           </StyledDiv>
         </Section>
 
       </StyledWrapper>
+      <Wrapper>
+      <About>
+      <h1>About</h1>
+        <Positive>
+
+        
+      
+        <p>{signs.strength}</p>
+        </Positive>
+      </About>
+      <About>
+      <h1>Weaknesses</h1>
+        <Positive>
+
+        
+      
+        <p>{signs.weakness}</p>
+        </Positive>
+      </About>
+      <About>
+      <h1>Gifts</h1>
+        <Positive>
+
+        
+      
+        <p>{signs.strength}</p>
+       
+        </Positive>
+        <Button style={{padding:"30px", marginTop:"80px"}} onClick={handleClick}>Get Horoscope</Button>
+      </About>
+   
+      </Wrapper>
      
+      
       </StyledContainer>
+      </Layout>
     </>
   );
 }
+const Wrapper = styled.div`
+width: 100%;
+height: 100vh;
+background-color: #222121;`
+const Positive = styled.div`
+width: 50%;
+max-width: 480px;
+margin-top: 50px;
+border-top: 1px solid #c7c7c7;
+`
+const About = styled.div`
+display: flex;
+align-items: center;
+flex-direction: column;
+margin-top: 50px;
+width: 100%;
+
+ h1{
+ font-size: 2rem;
+   color: white;
+   }
+
+p{
+
+color: white;
+text-align: left;
+margin-top: 50px;
+}
+`
 const StyledDiv = styled.div`
 
 letter-spacing: 0;
@@ -68,25 +138,19 @@ justify-content: space-between;
 min-height: 60px;
 flex-direction: row;`
 const StyledName = styled.div`
+h1{
+  font-size: 2rem;}
 
-letter-spacing: 0;
-color: #141414;
-text-align: left !important;
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-border: 0;
-font: inherit;
-font-size: 100%;
-vertical-align: baseline;`
+`
 const StyledContainer = styled.div`
 
-
+display: flex;
+flex-direction: column;
 text-align: center;
 margin: 0;
 border: 0;
 
-vertical-align: baseline;
+
 margin-right: auto;
 margin-left: auto;
 justify-content: center;
@@ -125,32 +189,6 @@ align-self: flex-end;
 
 
 `
-const ImageContainer = styled.div`
-  
-
-letter-spacing: 0;
-color: #141414;
-text-align: left !important;
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-border: 0;
-font: inherit;
-font-size: 100%;
-vertical-align: baseline;
-background-color: #141414;
-width: 100%;
-height: 153px;
-max-width: 500px;
-margin-top: 30px;
-margin-bottom: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-
-}
-`
-
 
  
 

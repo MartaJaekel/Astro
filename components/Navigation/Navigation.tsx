@@ -1,39 +1,64 @@
-import { keyframes } from "styled-components";
 import styled from "styled-components";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
 export default function Navigation() {
   return (
     <StyledNavigation>
+      <Part>
+        <button>
+       <Image src="/svg/moon.svg" alt="Astrology image" width={40} height={40}></Image>
+       </button>
+        <h1>Astro</h1>
+      </Part>
       <Section>
         <ul>
           <li>
             <Link href="/homepage">Home</Link>
           </li>
+
           <li>
-            <Link href="/homepage">Horoscope</Link>
-          </li>
-          <li>
-            <Link href="/homepage">Astrology</Link>
+            <Link href="/astrology">Astrology</Link>
           </li>
           <li>
             <Link href="/quiz">Quiz</Link>
           </li>
         </ul>
       </Section>
-      <StyledImage
+     
+      {/* <StyledImage
         src="/images/astrology.jpg"
         alt="Astrology image"
         width={300}
         height={200}
-      ></StyledImage>
+      ></StyledImage> */}
     </StyledNavigation>
   );
 }
+const Part = styled.div`
+display: flex;
+flex-direction: row;
+gap: 1rem;
+  position: absolute;
+  left: 2%;
+  top: 15%;
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+`;
 const Section = styled.section`
   position: absolute;
-  right: 5%;
-  top: 10%;
+  right: 3%;
+  top: 33%;
   margin: 0;
   ul {
     display: flex;
@@ -52,24 +77,11 @@ const Section = styled.section`
     text-decoration: underline;
   }
 `;
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
+
 const StyledNavigation = styled.div`
   position: relative;
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  width: 100%;
-  height: 255px;
-  margin-bottom: 1rem;
-`;
-const StyledImage = styled(Image)`
-  object-fit: contain;
-  animation: ${rotate} 30s linear infinite;
+
+  height: 80px;
+
+  border-bottom: 1px solid #e7e1e1;
 `;

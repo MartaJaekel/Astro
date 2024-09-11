@@ -3,94 +3,64 @@
 const data: QuizItem[] = [
 
   {
-    id: 1,
-    question: "What is the first sign of the zodiac?",
-    options: ["Aries", "Capricorn", "Virgo", "Scorpio"],
-    answer: "Aries"
+    "id": 1,
+    "question": "What is the name of the galaxy that contains our Solar System?",
+    "options": [" Milky Way Galaxy.", " Andromeda Galaxy.", " Triangulum Galaxy.", " Whirlpool Galaxy."],
+    "answer": " Milky Way Galaxy."
   },
   {
-    id: 2,
-    question: "Which zodiac sign is represented by the symbol of a bull?",
-    options: ["Taurus", "Leo", "Gemini", "Libra"],
-    answer: "Taurus"
+    "id": 2,
+    "question": "Which planet in our Solar System is known as the 'Red Planet'?",
+    "options": ["Mars is known as the 'Red Planet'.", "Venus is known as the 'Red Planet'.", "Jupiter is known as the 'Red Planet'.", "Saturn is known as the 'Red Planet'."],
+    "answer": "Mars is known as the 'Red Planet'."
   },
   {
-    id: 3,
-    question: "What is the ruling planet of Gemini?",
-    options: ["Mercury", "Venus", "Mars", "Jupiter"],
-    answer: "Mercury"
+    "id": 3,
+    "question": "In astrology, what is the term for a chart or diagram representing the positions of the Sun, Moon, planets, astrological aspects, and sensitive angles at the time of an event?",
+    "options": ["The term is Horoscope.", "The term is Astrolabe.", "The term is Compass.", "The term is Almanac."],
+    "answer": "The term is Horoscope."
   },
   {
-    id: 4,
-    question: "Which zodiac sign is known for its association with balance and harmony?",
-    options: ["Libra", "Pisces", "Sagittarius", "Aquarius"],
-    answer: "Libra"
+    "id": 4,
+    "question": "Which zodiac sign is represented by a pair of twins?",
+    "options": ["Gemini is represented by twins.", "Leo is represented by twins.", "Aquarius is represented by twins.", "Pisces is represented by twins."],
+    "answer": "Gemini is represented by twins."
   },
   {
-    id: 5,
-    question: "What element is associated with the zodiac sign Cancer?",
-    options: ["Water", "Fire", "Earth", "Air"],
-    answer: "Water"
+    "id": 5,
+    "question": "What is the term for the point in the sky directly above an observer on Earth?",
+    "options": ["The term is Zenith.", "The term is Nadir.", "The term is Meridian.", "The term is Horizon."],
+    "answer": "The term is Zenith."
   },
   {
-    id: 6,
-    question: "Which zodiac sign is ruled by the planet Mars?",
-    options: ["Aries", "Virgo", "Taurus", "Scorpio"],
-    answer: "Aries"
+    "id": 6,
+    "question": "Which planet is known for its extensive ring system?",
+    "options": ["Saturn is known for its rings.", "Jupiter is known for its rings.", "Uranus is known for its rings.", "Neptune is known for its rings."],
+    "answer": "Saturn is known for its rings."
   },
   {
-    id: 7,
-    question: "In astrology, which house represents communication, short trips, and siblings?",
-    options: ["3rd House", "7th House", "10th House", "1st House"],
-    answer: "3rd House"
+    "id": 7,
+    "question": "What is the term for a star that suddenly increases greatly in brightness because of a catastrophic explosion that ejects most of its mass?",
+    "options": ["The term is Supernova.", "The term is Quasar.", "The term is Pulsar.", "The term is Nebula."],
+    "answer": "The term is Supernova."
   },
   {
-    id: 8,
-    question: "Which zodiac sign is associated with the symbol of the scales?",
-    options: ["Libra", "Leo", "Sagittarius", "Gemini"],
-    answer: "Libra"
+    "id": 8,
+    "question": "Which constellation is known as the 'Hunter' and is easily recognizable by its belt of three stars?",
+    "options": ["The constellation is Orion.", "The constellation is Ursa Major.", "The constellation is Cassiopeia.", "The constellation is Andromeda."],
+    "answer": "The constellation is Orion."
   },
   {
-    id: 9,
-    question: "What is the ruling planet of Scorpio?",
-    options: ["Pluto", "Saturn", "Mars", "Neptune"],
-    answer: "Pluto"
+    "id": 9,
+    "question": "What is the name of the closest star to Earth?",
+    "options": ["The closest star to Earth is the Sun.", "The closest star to Earth is Proxima Centauri.", "The closest star to Earth is Alpha Centauri.", "The closest star to Earth is Sirius."],
+    "answer": "The closest star to Earth is the Sun."
   },
   {
-    id: 10,
-    question: "Which zodiac sign is known for its association with practicality and responsibility?",
-    options: ["Capricorn", "Aquarius", "Pisces", "Leo"],
-    answer: "Capricorn"
-  },
-  {
-    id: 11,
-    question: "What element is associated with the zodiac sign Leo?",
-    options: ["Fire", "Earth", "Water", "Air"],
-    answer: "Fire"
-  },
-  {
-    id: 12,
-    question: "Which zodiac sign is ruled by the planet Venus?",
-    options: ["Taurus", "Libra", "Scorpio", "Cancer"],
-    answer: "Libra"
-  },
-  {
-    id: 13,
-    question: "In astrology, which house represents partnerships and marriage?",
-    options: ["7th House", "5th House", "10th House", "3rd House"],
-    answer: "7th House"
-  },
-  {
-    id: 14,
-    question: "Which zodiac sign is associated with the symbol of the archer?",
-    options: ["Sagittarius", "Gemini", "Aries", "Aquarius"],
-    answer: "Sagittarius"
-  },
-  {
-    id: 15,
-    question: "What is the ruling planet of Aquarius?",
-    options: ["Uranus", "Saturn", "Jupiter", "Mercury"],
-    answer: "Uranus"
+    "id": 10,
+    "question": "In astrology, what is the term for the twelve 30-degree sectors that the zodiac is divided into?",
+    "options": ["The term is Zodiac Signs.", "The term is Houses.", "The term is Ascendants.", "The term is Nodes."],
+    "answer": "The term is Zodiac Signs."
   }
  ];
 
