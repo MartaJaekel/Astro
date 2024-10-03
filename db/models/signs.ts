@@ -55,6 +55,11 @@ const signSchema = new Schema({
     type: String,
     required: true,
   },
+  gifts: {
+    type: String,
+    required: true,
+  },
+  
   
 });
 const Sign = mongoose.models.Sign || mongoose.model("Sign", signSchema);

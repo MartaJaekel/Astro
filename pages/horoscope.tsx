@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation/Navigation";
 import useSWR from "swr";
 import Footer from "@/components/Footer/Footer";
 import Image from "next/image";
+import media from "css-in-js-media";
 
 export default function Horoscope() {
   const router = useRouter();
@@ -145,6 +146,10 @@ const Positive = styled.div`
   margin-top: 20px;
   border-top: 1px solid #c7c7c7;
   padding: 20px;
+   ${media("<=tablet")} {
+ width: 90%;
+  
+ }
 `;
 const Monthly = styled.div`
 display: flex;

@@ -1,42 +1,49 @@
 import styled from "styled-components";
 import SignCard from "../components/SignCard/SignCard";
 import useSWR from "swr";
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import media from "css-in-js-media";
 
 import Layout from "@/components/Layout/Layout";
-
 
 import { useRouter } from "next/router";
 import { useState } from "react";
 import React from "react";
 
-
 export default function Home() {
   const router = useRouter();
-  //store selected date 
+  //store selected date
   const [selectedDate, setSelectedDate] = useState<string>("");
- 
- 
+
   const getZodiacSign = (date: string) => {
-    const month = parseInt(date.split("-")[1])
-    const day = parseInt(date.split("-")[2])
-    
-    if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return "Aries"
-    if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return "Taurus"
-    if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return "Gemini"
-    if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return "Cancer"
-    if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return "Leo"
-    if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return "Virgo"
-    if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return "Libra"
-    if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return "Scorpio"
-    if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return "Sagittarius"
-    if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return "Capricorn"
-    if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return "Aquarius"
-    return "Pisces"
-  }
-   
+    const month = parseInt(date.split("-")[1]);
+    const day = parseInt(date.split("-")[2]);
+
+    if ((month === 3 && day >= 21) || (month === 4 && day <= 19))
+      return "Aries";
+    if ((month === 4 && day >= 20) || (month === 5 && day <= 20))
+      return "Taurus";
+    if ((month === 5 && day >= 21) || (month === 6 && day <= 20))
+      return "Gemini";
+    if ((month === 6 && day >= 21) || (month === 7 && day <= 22))
+      return "Cancer";
+    if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return "Leo";
+    if ((month === 8 && day >= 23) || (month === 9 && day <= 22))
+      return "Virgo";
+    if ((month === 9 && day >= 23) || (month === 10 && day <= 22))
+      return "Libra";
+    if ((month === 10 && day >= 23) || (month === 11 && day <= 21))
+      return "Scorpio";
+    if ((month === 11 && day >= 22) || (month === 12 && day <= 21))
+      return "Sagittarius";
+    if ((month === 12 && day >= 22) || (month === 1 && day <= 19))
+      return "Capricorn";
+    if ((month === 1 && day >= 20) || (month === 2 && day <= 18))
+      return "Aquarius";
+    return "Pisces";
+  };
+
   const handleExplore = () => {
     const sign = getZodiacSign(selectedDate);
     router.push(`/horoscope?sign=${sign}`);
@@ -47,46 +54,46 @@ export default function Home() {
 
   return (
     <>
-    <Layout>
-      <Container>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            borderBottom: "1px solid #e7e1e1",
-          }}
-        >
-         
-
-          <Section>
-            <Intro>
-              <h1>Cosmic Insights</h1>
-              <p>Discover your path trough the stars</p>
-            </Intro>
-            <Date>
-          <Input className="w-auto" placeholder="Search for your sign" type="date" onChange={(e) => setSelectedDate(e.target.value)}  />
-          <Button onClick={handleExplore} >Explore</Button>
-          </Date>
-
-          </Section>
-
-         
-        </div>
-        <SectionZodiac>
-          <h1>Zodiac Signs</h1>
-          <div style={{display: "flex", justifyContent: "center"}}>
-          <StyledList>
-            {data.map((sign) => (
-              <li key={sign._id}>
-                <SignCard sign={sign} />
-              </li>
-            ))}
-          </StyledList>
+      <Layout>
+        <Container>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              borderBottom: "1px solid #e7e1e1",
+            }}
+          >
+            <Section>
+              <Intro>
+                <h1>Cosmic Insights</h1>
+                <p>Discover your path<br/>
+                 trough the stars</p>
+              </Intro>
+              <Date>
+                <Input
+                  className="w-auto"
+                  placeholder="Search for your sign"
+                  type="date"
+                  onChange={(e) => setSelectedDate(e.target.value)}
+                />
+                <Button onClick={handleExplore}>Explore</Button>
+              </Date>
+            </Section>
           </div>
-         
-        </SectionZodiac>
-      </Container>
+          <SectionZodiac>
+            <h1>Zodiac Signs</h1>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <StyledList>
+                {data.map((sign) => (
+                  <li key={sign._id}>
+                    <SignCard sign={sign} />
+                  </li>
+                ))}
+              </StyledList>
+            </div>
+          </SectionZodiac>
+        </Container>
       </Layout>
     </>
   );
@@ -96,29 +103,29 @@ const Date = styled.div`
   flex-direction: row;
   align-items: baseline;
   gap: 1rem;
-  `
+`;
 const SectionZodiac = styled.section`
-display: flex;
-flex-direction: column;
-height: 80vh;
-gap: 60px;
+  display: flex;
+  flex-direction: column;
+  margin: 100px;
+  gap: 60px;
   h1 {
     font-size: 2.5rem;
   }
+  
 `;
 const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  height: 40vh;
 `;
 const Intro = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0px;
+  text-align: center;
 
   width: 100%;
   h1 {
@@ -130,15 +137,36 @@ const Intro = styled.div`
     color: #787777;
     font-size: 1.2rem;
   }
+  ${media("<=tablet")} {
+    margin-top: 5px;
+    h1 {
+      font-size: 2.3rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
 `;
-
 
 const StyledList = styled.ul`
   list-style: none;
   display: grid;
-  display: grid;
+
   grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
+  gap: 35px;
+  ${media("<=tablet")} {
+ 
+   grid-template-columns: repeat(3, 1fr);
+  
+  }
+   li {
+    aspect-ratio: 2 / 2.9;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
 `;
 const Container = styled.div`
   width: 100%;
@@ -148,7 +176,8 @@ const Container = styled.div`
   section {
     display: flex;
     justify-content: center;
-    margin: 1rem 0;
+   margin: 100px;
+    
   }
  
   }

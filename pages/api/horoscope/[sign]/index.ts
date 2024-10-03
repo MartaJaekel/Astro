@@ -34,10 +34,24 @@ export default async function handler(request: NextApiRequest, response: NextApi
   }
   const { data: monthlyData } = await responseAPIMonthly.json();
   const { data: weeklyData } = await responseAPIWeekly.json(); // read response and parse it as JSON
-  console.log(monthlyData);
+
+  const monthlyDataHoroscope = monthlyData.horoscope_data
+    // removing the title from between the horoscope data
+    ?.replace(`${monthlyData.month.split(' ')[0]} Premium Horoscope`, ' ')
+    // replacing the dots with dots and spaces
+    ?.replace(/\./g, '. ');
+
+  const dailyDataHoroscope = data.horoscope_data
+    // remove any sentence that includes drug(s) or alcohol
+    // a sentence is a group of words that ends with a dot and is after a dot and a space
+    // ?.replace(/\. [^.]*drug[^.]*\./g, '. ')
+    // ?.replace(/\. [^.]*alcohol[^.]*\./g, '. ')
+
+
   response.status(200).json({
     ...data,
+    horoscope_data: dailyDataHoroscope,
     week: { ...weeklyData },
-    month: { ...monthlyData },
+    month: { ...monthlyData, horoscope_data: monthlyDataHoroscope },
   });
 }

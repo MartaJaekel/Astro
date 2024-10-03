@@ -85,7 +85,7 @@ const GlobalStyle = createGlobalStyle`
 const Background = styled.div`
   background-image: url("/images/stars.jpg");
   background-size: cover;
-  height: 100vh;
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;

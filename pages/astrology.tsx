@@ -4,17 +4,9 @@ import React from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import Layout from "@/components/Layout/Layout";
+import media from "css-in-js-media";
 
 export default function Astrology() {
-  //   const { data, error } = useSWR("/api/signs");
-
-  //   if (!data || !Array.isArray(data)) return <div>Loading...</div>;
-
-  //   if (error) return <div>Error: {error.message}</div>;
-  // const handleNavigation = () => {
-  //     router.push(`/characters?sign=value`);
-  // }
-
   return (
     <>
       <Layout>
@@ -23,7 +15,8 @@ export default function Astrology() {
             <h1>Astrology</h1>
             <StyledDiv>
               <p>
-                The word <strong>&quot;astrology&quot;</strong> is derived from the Greek terms for
+                The word <strong>&quot;astrology&quot;</strong> is derived from
+                the Greek terms for
                 <strong> &quot;star&quot;</strong>
                 (ἄστρον, astron) and <strong>&quot; word &quot; </strong>(λόγος,
                 logos). Astrology studies the movement and positioning of the
@@ -161,43 +154,6 @@ export default function Astrology() {
                 </div>
               </Card>
 
-              {/* <Card style={{backgroundColor:"rgb(252 249 249)", maxWidth:"480px", flex: 1}}>
-                <CardHeader style={{fontWeight: "bold"}}>
-                  <h1 style={{fontSize: "1.3rem"}}>The Moon</h1>
-                  <ImageContainer>
-                  <Image src="/svg/fullmoon.svg" height={25} width={25} alt="sun"/>
-                  </ImageContainer>
-                  <br />
-                  <span style={{color:"#b3acac"}}>Our Emotions, Sensitivity, and Subconscious</span>
-                </CardHeader>{" "}
-                <CardContent>
-                  <strong>The Moon</strong> represents our inner psyche and
-                  emotional nature. Some astrologers say that the Sun is how we
-                  see our selfs, while the Moon is who we really are. It is the
-                  emotional backdrop for all what we do, ruling our instincts
-                  and vulnerability.
-                </CardContent>
-              </Card> */}
-              {/* <Card style={{backgroundColor:"rgb(252 249 249)", maxWidth:"480px",flex: 1}}>
-                {" "}
-                <CardHeader style={{fontWeight: "bold"}}>
-                  <h1 style={{fontSize: "1.3rem"}}>The Ascendant</h1>
-                  <ImageContainer>
-                  <Image src="/svg/ascendant.svg" height={25} width={25} alt="sun"/>
-                  </ImageContainer>
-                  <br />
-                  <span style={{color:"#b3acac"}}>
-                  Our Outermost Layer, First Impression,
-                  <br />
-                  and Physical Appereance</span>
-                </CardHeader>
-                <CardContent>
-                  <strong>Our Ascendant</strong>, or Rising Sign, describes our
-                  outermost layer and how make a first impression, so how others
-                  see us. It tells us us about the mask we wear and the more
-                  superficial aspects of ourselfs.
-                </CardContent>
-              </Card> */}
               <Card
                 style={{
                   backgroundColor: "rgb(252 249 249)",
@@ -286,14 +242,24 @@ const Div = styled.div`
 const Quote = styled.div`
   font-size: 1.5rem;
   font-style: italic;
+  ${media("<=tablet")} {
+  margin: 20px;
+  }
 `;
 const More = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
   gap: 3rem;
   margin-bottom: 2rem;
+  ${media("<=tablet")} {
+    flex-direction: column;
+    margin: 30px;
+  }
+     ${media("<=desktop")} {
+    flex-direction: column;
+    margin: 30px;
+  }
 `;
 
 const Main = styled.div`
@@ -342,12 +308,14 @@ const StyledDiv = styled.div`
 const Section = styled.section`
   display: flex;
   flex-direction: column;
-
+  padding: 100px;
   justify-content: center;
   align-items: center;
   width: 100%;
   background-color: #f7f7f7;
-  height: 80vh;
+  ${media("<=tablet")} {
+    padding: 40px;
+  }
 `;
 const Wrapper = styled.div`
   display: flex;

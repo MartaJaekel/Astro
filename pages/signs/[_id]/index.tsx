@@ -3,7 +3,7 @@ import useSWR from "swr";
 import styled from "styled-components";
 import React from "react";
 import { Button } from "@/components/ui/button";
-
+import media from "css-in-js-media";
 import Layout from "@/components/Layout/Layout";
 
 export default function DetailsPage() {
@@ -76,12 +76,12 @@ export default function DetailsPage() {
 
         
       
-        <p>{signs.strength}</p>
+        <p>{signs.gifts}</p>
        
         </Positive>
-        <Button style={{padding:"30px", marginTop:"80px"}} onClick={handleClick}>Get Horoscope</Button>
+       
       </About>
-   
+      <Button style={{padding:"23px", margin:"50px", cursor:"pointer"}} onClick={handleClick}>Get Horoscope</Button>
       </Wrapper>
      
       
@@ -92,13 +92,16 @@ export default function DetailsPage() {
 }
 const Wrapper = styled.div`
 width: 100%;
-height: 100vh;
+
 background-color: #222121;`
 const Positive = styled.div`
 width: 50%;
 max-width: 480px;
 margin-top: 50px;
 border-top: 1px solid #c7c7c7;
+${media("<=tablet")} {
+  width: 80%;
+}
 `
 const About = styled.div`
 display: flex;
@@ -164,7 +167,7 @@ width: 100%;
 box-sizing: border-box;
 max-width: 100vw !important;
 align-items: center;
-padding: 3rem 0px 100px 0px !important;
+padding-top: 3rem ;
 background-color: #f7f7f7;
 color: #141414;
 

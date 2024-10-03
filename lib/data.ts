@@ -4,64 +4,107 @@ const data: QuizItem[] = [
 
   {
     "id": 1,
-    "question": "What is the name of the galaxy that contains our Solar System?",
-    "options": [" Milky Way Galaxy.", " Andromeda Galaxy.", " Triangulum Galaxy.", " Whirlpool Galaxy."],
-    "answer": " Milky Way Galaxy."
+    "question": "When is Aquarius season ?",
+    "options": [" January 20 to February 18", "November 22 to December 21", "September 23 to October 23", "September 23 to October 23"],
+    "answer": "January 20 to February 18"
   },
   {
     "id": 2,
-    "question": "Which planet in our Solar System is known as the 'Red Planet'?",
-    "options": ["Mars is known as the 'Red Planet'.", "Venus is known as the 'Red Planet'.", "Jupiter is known as the 'Red Planet'.", "Saturn is known as the 'Red Planet'."],
-    "answer": "Mars is known as the 'Red Planet'."
+    "question": " When is Taurus Season ?",
+    "options": ["June 22 to July 22", "November 22 to December 21", "April 20 to May 20", "July 23 to August 22"],
+    "answer": "April 20 to May 20"
   },
   {
     "id": 3,
-    "question": "In astrology, what is the term for a chart or diagram representing the positions of the Sun, Moon, planets, astrological aspects, and sensitive angles at the time of an event?",
-    "options": ["The term is Horoscope.", "The term is Astrolabe.", "The term is Compass.", "The term is Almanac."],
-    "answer": "The term is Horoscope."
+    "question": "When is Leo season ?",
+    "options": ["September 23 to October 23", "July 23 to August 22", "December 22 to January 19", "June 22 to July 22"],
+    "answer": "July 23 to August 22"
   },
   {
     "id": 4,
-    "question": "Which zodiac sign is represented by a pair of twins?",
-    "options": ["Gemini is represented by twins.", "Leo is represented by twins.", "Aquarius is represented by twins.", "Pisces is represented by twins."],
-    "answer": "Gemini is represented by twins."
+    "question": " When is Gemini season ?",
+    "options": ["March 21 to April 19", "June 22 to July 22", "October 24 to November 21", "January 20 to February 18"],
+    "answer": "May 21 to June 20"
   },
   {
     "id": 5,
-    "question": "What is the term for the point in the sky directly above an observer on Earth?",
-    "options": ["The term is Zenith.", "The term is Nadir.", "The term is Meridian.", "The term is Horizon."],
-    "answer": "The term is Zenith."
+    "question": " When is Libra season ?",
+    "options": ["February 19 to March 20", "May 21 to June 21", "January 20 to February 18", "September 23 to October 23"],
+    "answer": "September 23 to October 23"
+  },
+  {
+    "id": 5,
+    "question": "What does our Sun sign represent ?",
+    "options": ["expression, sanity and joy", "Emotions and Subconscious", "Outermost Layer, First Impression", "Our Weaknesses and limitations"], 
+    "answer": "expression, sanity and joy"
   },
   {
     "id": 6,
-    "question": "Which planet is known for its extensive ring system?",
-    "options": ["Saturn is known for its rings.", "Jupiter is known for its rings.", "Uranus is known for its rings.", "Neptune is known for its rings."],
-    "answer": "Saturn is known for its rings."
-  },
+    "question": "What is Cancer gifted at ? ",
+    "options": ["Caring, nurturing and protective", "Adventurous and optimistic ", "Analytical, practical and critical", "Diplomatic, fair-minded and social"],
+    "answer": "Caring, nurturing and protective"
+  }
+  ,
   {
     "id": 7,
-    "question": "What is the term for a star that suddenly increases greatly in brightness because of a catastrophic explosion that ejects most of its mass?",
-    "options": ["The term is Supernova.", "The term is Quasar.", "The term is Pulsar.", "The term is Nebula."],
-    "answer": "The term is Supernova."
+    "question": "What is Leo gifted at  ?",
+    "options": ["Caring, nurturing and protective", "Affective and optimistic ", "Analytical, practical and critical", "Diplomatic, fair-minded and social"],
+    "answer": "Affective and optimistic"
   },
+   
   {
     "id": 8,
-    "question": "Which constellation is known as the 'Hunter' and is easily recognizable by its belt of three stars?",
-    "options": ["The constellation is Orion.", "The constellation is Ursa Major.", "The constellation is Cassiopeia.", "The constellation is Andromeda."],
-    "answer": "The constellation is Orion."
+    "question": "What is Virgo gifted at ?",
+    "options": ["Generous and open minded", "Adventurous and optimistic ", "Analytical, practical and critical", "Diplomatic, fair-minded and social"],
+    "answer": "Loyal, practical and critical"
   },
   {
     "id": 9,
-    "question": "What is the name of the closest star to Earth?",
-    "options": ["The closest star to Earth is the Sun.", "The closest star to Earth is Proxima Centauri.", "The closest star to Earth is Alpha Centauri.", "The closest star to Earth is Sirius."],
-    "answer": "The closest star to Earth is the Sun."
+    "question": "What is Libra gifted at ?",
+    "options": ["Caring, nurturing and protective", "Adventurous and optimistic ", "Analytical, diplomatic and loyal", "Diplomatic, fairx and harmonious"],
+    "answer": "Diplomatic, fair-minded and harmonious"
   },
   {
     "id": 10,
-    "question": "In astrology, what is the term for the twelve 30-degree sectors that the zodiac is divided into?",
-    "options": ["The term is Zodiac Signs.", "The term is Houses.", "The term is Ascendants.", "The term is Nodes."],
-    "answer": "The term is Zodiac Signs."
+    "question": "What are the weaknesses of Scorpio ?",
+    "options": ["Impatient, stubborn and intense", "Stubborn, insecure and uncommunicative ", "impatient, greedy and gelous", "Intense, moody, addicted"],
+   "answer": "Impatient, stubborn and intense"
+  },
+  {
+    "id": 11,
+    "question": "What are the weaknesses of Sagittarius ?",
+    "options": ["Exuberant, impatient and flighty", "Unforgiving and self-critical ", "Intense, moody, addicted", "Impatient, stubborn and intense"],
+    "answer": "Exuberant, impatient and flighty"
+  },
+   {
+     "id": 12,
+    "question": "What is Capricorn gifted at ?",
+     "options": ["Caring, nurturing and protective", "Adventurous and optimistic ", "Curios, leaders and smart", "Diplomatic, fair-minded and social"],
+     "answer": "Curios,leaders and smart"
+   },
+  // {
+  //   "id": 13,
+  //   "question": "What are the gifts of Aquarius ?",
+  //   "options": ["Caring, nurturing and protective", "Adventurous and optimistic ", "Analytical, practical and critical", "Diplomatic, fair-minded and social"],
+  //   "answer": "Diplomatic, fair-minded and social"
+  // },
+  {
+    "id": 13,
+    "question": "What is Pisces gifted at ?",
+    "options": ["Intuitive, creative and sensitive", "Adventurous and optimistic ", "Curios,leaders and smart", "Diplomatic, fair-minded and social"],
+    "answer": "Intuitive, creative and sensitive"
   }
+  
  ];
 
- export default data;
+ function shuffleArray(array: typeof data) {
+  for (let i = array.length - 1; i > 0; i--) {
+    // Generate a random index between 0 and i
+    const j = Math.floor(Math.random() * (i + 1));
+    // Swap elements at indices i and j
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+ export default shuffleArray(data);
