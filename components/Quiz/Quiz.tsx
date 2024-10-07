@@ -12,7 +12,6 @@ import media from "css-in-js-media";
 export default function Quiz() {
   const [quizStarted, setQuizStarted] = React.useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
-
   const [quizCompleted, setQuizCompleted] = React.useState(false);
   const [correctAnswers, setCorrectAnswers] = React.useState(0);
   const [answeredQuestions, setAnsweredQuestions] = React.useState<number[]>(
@@ -58,7 +57,7 @@ export default function Quiz() {
   useEffect(() => {
     if (quizCompleted) {
       const timers =
-        correctAnswers < 3
+        correctAnswers < 10
           ? [
               setTimeout(() => shootSad(), 0),
               setTimeout(() => shootSad(), 200),
@@ -79,37 +78,29 @@ export default function Quiz() {
     }
   }, [quizCompleted, correctAnswers]);
 
-  //   //function to increment question index when answer is clicked
-  // //
   const resetQuiz = () => {
-    setQuizStarted(true); // Reset the quiz state to its initial state
-    setQuizCompleted(false); // Mark the quiz as not completed
-    setCurrentQuestionIndex(0); // Reset to the first question
-    setCorrectAnswers(0); // Reset the correct answers count
-    setAnsweredQuestions([]); // Clear the list of answered questions
+    setQuizStarted(true);
+
+    setQuizCompleted(false);
+    setCurrentQuestionIndex(0);
+    setCorrectAnswers(0);
+    setAnsweredQuestions([]);
   };
 
   const handleAnswer = (event: React.MouseEvent<HTMLButtonElement>) => {
     const userSelectedOption = event.currentTarget.textContent;
-    //   // Check if the current question has not been answered before
-    if (!answeredQuestions.includes(currentQuestionIndex)) {
-      //     // Add current question to the list of answered questions
-      //
 
+    if (!answeredQuestions.includes(currentQuestionIndex)) {
       setAnsweredQuestions([...answeredQuestions, currentQuestionIndex]);
 
-      //     // Get the current question object from the data array
       const currentQuestion = data[currentQuestionIndex];
 
-      //     // Check if the user selected option matches the correct answer
       if (userSelectedOption === currentQuestion.answer) {
-        //       // Increment the count of correct answers
         setCorrectAnswers(correctAnswers + 1);
       }
       if (currentQuestionIndex < data.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
       } else {
-        //       // If there are no more questions, mark the quiz as completed
         setQuizCompleted(true);
       }
     }
@@ -150,9 +141,7 @@ export default function Quiz() {
                     width={24}
                     height={24}
                     alt="stars"
-                  >
-                    {/* SVG content here */}
-                  </Image>
+                  ></Image>
                   Start Quiz
                 </button>
               </CardContent>
@@ -181,11 +170,15 @@ export default function Quiz() {
                     alignItems: "center",
                   }}
                 >
-                  {correctAnswers < 3 ? (
-                    <p> Sorry, you will not get any sparkling stars.</p>
+                  {correctAnswers < 10 ? (
+                    <p>
+                      {" "}
+                      Sorry, you will not get any sparkling stars, you only got{" "}
+                      {correctAnswers} of {data.length} right.
+                    </p>
                   ) : (
                     <p>
-                      Congratulations ,you got <strong>{correctAnswers}</strong>{" "}
+                      Congratulations, you got <strong>{correctAnswers}</strong>{" "}
                       out of <strong>{data.length}</strong> questions correct!
                     </p>
                   )}
@@ -228,7 +221,7 @@ export default function Quiz() {
                   {data[currentQuestionIndex].options.map((option, index) => (
                     <Button
                       key={index}
-                      onClick={handleAnswer} // Minimum width for responsive buttons
+                      onClick={handleAnswer}
                     >
                       {option}
                     </Button>
@@ -267,23 +260,20 @@ background-color: black;
   border-radius: 14px;
   font-size: 1rem;
   margin-top: 40px;
-  
-  width: 320px;   /* Fixed width for all buttons */
-  text-align: center; /* Center text within the button */
-  display: inline-block; /* Ensures consistent button size */
-  cursor: pointer; /* Add a pointer on hover */
+  width: 320px;   
+  text-align: center; 
+  display: inline-block; 
+  cursor: pointer; 
    transition: all 0.3s ease-in-out;
   &:hover {
-    background-color: #333; /* Darken background color */
-    color: #f0e68c; /* Change text color to a contrasting shade (e.g., khaki) */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Larger shadow effect */
-    transform: translateY(-5px) scale(1.05); /* Slight upward movement and scale up */
+    background-color: #333; 
+    color: #f0e68c; 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px) scale(1.05); 
   }
-
-  /* Optional: Active button state (when clicked) */
-  &:active {
-    transform: translateY(0px) scale(1); /* Return to original position */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer shadow when clicked */
+   &:active {
+    transform: translateY(0px) scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 
   }
   ${media("<=tablet")} {

@@ -16,14 +16,13 @@ export default function Navigation() {
   const [isDesktop, setIsDesktop] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth > 768); // Adjust the breakpoint as needed
+      setIsDesktop(window.innerWidth > 768);
     };
 
-    handleResize(); // Check the screen size on initial render
-    window.addEventListener("resize", handleResize); // Add event listener for window resize
-
+    handleResize();
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize); // Clean up the event listener
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
   return (
@@ -37,7 +36,7 @@ export default function Navigation() {
             height={40}
           ></Image>
         </button>
-        <Link href="/homepage">
+        <Link href="/">
           <h1>Astro</h1>
         </Link>
       </Part>
@@ -46,13 +45,16 @@ export default function Navigation() {
         <Section>
           <ul>
             <li>
-              <Link href="/homepage">Home</Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
               <Link href="/astrology">Astrology</Link>
             </li>
             <li>
               <Link href="/quiz">Quiz</Link>
+            </li>
+            <li>
+              <Link href="/chart">Natal Chart</Link>
             </li>
           </ul>
         </Section>
@@ -61,13 +63,16 @@ export default function Navigation() {
           <SheetTrigger className="absolute right-2 top-4">
             <Image src="/svg/menu.svg" width={30} height={30} alt="menu" />
           </SheetTrigger>
-          <SheetContent side="top" className="h-[200px] w-[100%] flex justify-center ">
+          <SheetContent
+            side="top"
+            className="h-[250px] w-[100%] flex justify-center "
+          >
             <SheetHeader>
               <SheetTitle className="text-xl text-center">Menu</SheetTitle>
               <SheetDescription>
                 <ul className="flex flex-col gap-4 mt-4 ">
                   <li>
-                    <Link href="/homepage" className="underline">
+                    <Link href="/" className="underline">
                       Home
                     </Link>
                   </li>
@@ -79,6 +84,11 @@ export default function Navigation() {
                   <li>
                     <Link href="/quiz" className="underline">
                       Quiz
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/quiz" className="underline">
+                      Natal Chart
                     </Link>
                   </li>
                 </ul>
