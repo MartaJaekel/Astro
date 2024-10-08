@@ -9,6 +9,7 @@ import confetti from "canvas-confetti";
 import { useEffect } from "react";
 import media from "css-in-js-media";
 
+
 export default function Quiz() {
   const [quizStarted, setQuizStarted] = React.useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
@@ -80,7 +81,6 @@ export default function Quiz() {
 
   const resetQuiz = () => {
     setQuizStarted(true);
-
     setQuizCompleted(false);
     setCurrentQuestionIndex(0);
     setCorrectAnswers(0);
@@ -115,7 +115,7 @@ export default function Quiz() {
             <Card className="flex flex-col justify-center items-center gap-5 p-12 bg-gray-100 w-[350px] md:w-[800px] h-[470px]">
               <CardHeader style={{ fontSize: "2rem", fontWeight: "bold" }}>
                 {" "}
-                Sign Quiz
+                Astro Quiz
               </CardHeader>
               <CardContent className="text-[18px] md:text-[25px] text-center flex flex-col items-center">
                 <p>
@@ -282,9 +282,7 @@ background-color: black;
    margin-top: 15px;
       
      }
-
-  
-  }
+   }
 `;
 
 const CardWrapper = styled.div`

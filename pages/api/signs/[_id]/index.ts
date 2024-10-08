@@ -6,10 +6,8 @@ export default async function handler(request: NextApiRequest, response: NextApi
   const { _id } = request.query;
   console.log("id:", _id);
   //fetching single document from the database based on its id 
-  if (request.method === "GET") { //if method is GET
-    // await Sign.find({
-    //   id: id,
-    // });
+  if (request.method === "GET") {
+   
     const sign = await Sign.findById(_id);
     if (!sign) {
       return response.status(404).json({ status: "Not Found" });

@@ -18,7 +18,6 @@ export default function Navigation() {
     const handleResize = () => {
       setIsDesktop(window.innerWidth > 768);
     };
-
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
@@ -87,7 +86,7 @@ export default function Navigation() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/quiz" className="underline">
+                    <Link href="/chart" className="underline">
                       Natal Chart
                     </Link>
                   </li>
@@ -137,8 +136,6 @@ const Section = styled.section`
 
 const StyledNavigation = styled.div`
   position: relative;
-
   height: 80px;
-
   border-bottom: 1px solid #e7e1e1;
 `;
