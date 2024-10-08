@@ -9,7 +9,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
   }
   
-
+//fetch making http get request to horoscope api 
   const responseAPI = await fetch(
     `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${sign}&day=${formatedDate}`
   );
@@ -34,10 +34,21 @@ export default async function handler(request: NextApiRequest, response: NextApi
   }
   const { data: monthlyData } = await responseAPIMonthly.json();
   const { data: weeklyData } = await responseAPIWeekly.json(); // read response and parse it as JSON
-  console.log(monthlyData);
+
+  const monthlyDataHoroscope = monthlyData.horoscope_data
+    // removing the title from between the horoscope data
+    ?.replace(`${monthlyData.month.split(' ')[0]} Premium Horoscope`, ' ')
+    // replacing the dots with dots and spaces
+    ?.replace(/\./g, '. ');
+
+  const dailyDataHoroscope = data.horoscope_data
+
+
+
   response.status(200).json({
     ...data,
+    horoscope_data: dailyDataHoroscope,
     week: { ...weeklyData },
-    month: { ...monthlyData },
+    month: { ...monthlyData, horoscope_data: monthlyDataHoroscope },
   });
 }
