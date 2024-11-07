@@ -5,7 +5,6 @@ import React, {
   useEffect,
   useRef,
 } from "react";
-import { getCoordinates } from "./api/getLocation";
 import {
   createMercury,
   createVenus,
@@ -161,7 +160,13 @@ export default function SimplifiedBirthChart() {
     }
 
     try {
-      const coordinates = await getCoordinates(birthData.place);
+      const response = await fetch("api/getLocation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ place: birthData.place }),
+      });
+
+      const coordinates = await response.json();
       const birthDataWithCoordinates: BirthData = {
         ...birthData,
         latitude: coordinates.latitude,
