@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiKey = 'dee4a115873b45fe90974a4fafad115b';  // Replace with your actual API key
+const apiKey = process.env.GEO_CODE_API_KEY;  // Replace with your actual API key
 
 export const getCoordinates = async (place: string): Promise<{ latitude: number; longitude: number }> => {
   const response = await axios.get(
