@@ -19,13 +19,10 @@ export default function Horoscope() {
   const fetchHoroscopeUrl = sign ? `/api/horoscope/${sign}?date=today` : null;
   const { data: horoscope, error: errorMessage } = useSWR(fetchHoroscopeUrl);
 
-  // const monthlyData = horoscope.month;
   // Conditional rendering after all hooks have been called
   const weeklyData = horoscope && horoscope.week ? horoscope.week : null;
   const monthlyData = horoscope && horoscope.month ? horoscope.month : null;
-  // if (!weeklyData) {
-  //   return <div>No weekly data available</div>;
-  // }
+
   if (!isReady || isLoading || error) {
     return <h2>Loading...</h2>;
   }
@@ -39,7 +36,7 @@ export default function Horoscope() {
   }
   const getDate = new Date();
   const day = String(getDate.getDate()).padStart(2, "0");
-  const month = String(getDate.getMonth() + 1).padStart(2, "0"); // January is 0!
+  const month = String(getDate.getMonth() + 1).padStart(2, "0");
   const year = getDate.getFullYear();
   const today = `${day}-${month}-${year}`;
 
@@ -146,10 +143,9 @@ const Positive = styled.div`
   margin-top: 20px;
   border-top: 1px solid #c7c7c7;
   padding: 20px;
-   ${media("<=tablet")} {
- width: 90%;
-  
- }
+  ${media("<=tablet")} {
+    width: 90%;
+  }
 `;
 const Monthly = styled.div`
 display: flex;

@@ -2,10 +2,8 @@ import { useState } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-// import { keyframes } from "styled-components";
-import { format, subDays, addDays } from "date-fns";
 
-// import { useSpring, animated } from "react-spring";
+import { format, subDays, addDays } from "date-fns";
 
 import React from "react";
 
@@ -79,50 +77,17 @@ export default function Characters() {
         </StyledContent>
         <StyledAdd>
           <h2> Horoscope for the week</h2>
-          {/* <img
-              src="images/chevron.svg"
-              height={30}
-              width={30}
-              onClick={() => setShowHoroscope(!showHoroscope)}
-            ></img> */}
 
-          {/* {showHoroscope && (
-              <animated.p style={animationProps}> */}
           <p>{weeklyData && JSON.stringify(weeklyData.horoscope_data)}</p>
-          {/* </animated.p> */}
-          {/* )} */}
+
           <h2> Horoscope for the month</h2>
-          {/* <img
-              src="images/chevron.svg"
-              height={30}
-              width={30}
-              onClick={() => setShowMonthlyHoroscope(!showMonthlyHoroscope)}
-            ></img> */}
-          {/* {showMonthlyHoroscope && ( */}
-          {/* <animated.p style={monthlyAnimationProps}> */}
+
           <p>{monthlyData && JSON.stringify(monthlyData.horoscope_data)}</p>
-          {/* </animated.p>
-            )} */}
         </StyledAdd>
-        {/* </SlideInContent> */}
       </StyledWrapper>
     </>
   );
 }
-// const slideIn = keyframes`
-//   from {
-//     transform: translateY(100%);
-//   }
-//   to {
-//     transform: translateY(0);
-//   }
-// `;
-// const SlideInContent = styled.div`
-//   animation: ${slideIn} 0.7s ease-out;
-// `;
-
-// #e0ddcb p
-// #e5d6a3 #bfc7d0#b6ad8f, #eff5fb)
 
 const StyledHeader = styled.h2`
   font-size: 1.5rem;
