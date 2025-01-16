@@ -20,6 +20,7 @@ import { createTimeOfInterest } from "astronomy-bundle/time";
 import * as d3 from "d3";
 import styled from "styled-components";
 import Layout from "@/components/Layout/Layout";
+import media from "css-in-js-media";
 
 // Define types for planet positions and birth data
 type PlanetPosition = {
@@ -372,6 +373,9 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+   ${media("<=phone")} {
+     align-items: normal;
+  }
 
   label {
     display: flex;

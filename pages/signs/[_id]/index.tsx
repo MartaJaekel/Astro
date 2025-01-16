@@ -82,7 +82,6 @@ export default function DetailsPage() {
 }
 const Wrapper = styled.div`
   width: 100%;
-
   background-color: #222121;
 `;
 const Positive = styled.div`
