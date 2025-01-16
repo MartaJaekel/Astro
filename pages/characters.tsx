@@ -2,10 +2,8 @@ import { useState } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-// import { keyframes } from "styled-components";
-import { format, subDays, addDays } from "date-fns";
 
-// import { useSpring, animated } from "react-spring";
+import { format, subDays, addDays } from "date-fns";
 
 import React from "react";
 
@@ -13,15 +11,6 @@ export default function Characters() {
   const router = useRouter();
   const { sign } = router.query;
   const [selectDate, setSelectedDate] = useState("today");
-  // const [showHoroscope, setShowHoroscope] = useState(false);
-  // const [showMonthlyHoroscope, setShowMonthlyHoroscope] = useState(false);
-
-  // const animationProps = useSpring({
-  //   transform: showHoroscope ? "translateY(0)" : "translateY(100%)",
-  // });
-  // const monthlyAnimationProps = useSpring({
-  //   transform: showMonthlyHoroscope ? "translateY(0)" : "translateY(100%)",
-  // });
 
   const { data, error } = useSWR(
     sign ? `/api/horoscope/${sign}?date=${selectDate}` : null
@@ -51,91 +40,54 @@ export default function Characters() {
       <StyledWrapper>
         <StyledTitle>{sign}</StyledTitle>
         {/* <SlideInContent> */}
-          <StyledHeader>Daily Horoscope</StyledHeader>
+        <StyledHeader>Daily Horoscope</StyledHeader>
 
-          <StyledSection>
-            <button
-              className={selectDate === "yesterday" ? "selected" : ""}
-              onClick={() => setSelectedDate("yesterday")}
-            >
-              Yesterday <br />
-              <div>
-                <span>{yesterday}</span>
-              </div>
-            </button>
-            <button
-              className={selectDate === "today" ? "selected" : ""}
-              onClick={() => setSelectedDate("today")}
-            >
-              Today <br />
-              <div>
-                <span>{dayName}</span>
-              </div>
-            </button>
-            <button
-              className={selectDate === "tomorrow" ? "selected" : ""}
-              onClick={() => setSelectedDate("tomorrow")}
-            >
-              Tomorrow <br />
-              <div>
-                <span>{tomorrow}</span>
-              </div>
-            </button>
-          </StyledSection>
+        <StyledSection>
+          <button
+            className={selectDate === "yesterday" ? "selected" : ""}
+            onClick={() => setSelectedDate("yesterday")}
+          >
+            Yesterday <br />
+            <div>
+              <span>{yesterday}</span>
+            </div>
+          </button>
+          <button
+            className={selectDate === "today" ? "selected" : ""}
+            onClick={() => setSelectedDate("today")}
+          >
+            Today <br />
+            <div>
+              <span>{dayName}</span>
+            </div>
+          </button>
+          <button
+            className={selectDate === "tomorrow" ? "selected" : ""}
+            onClick={() => setSelectedDate("tomorrow")}
+          >
+            Tomorrow <br />
+            <div>
+              <span>{tomorrow}</span>
+            </div>
+          </button>
+        </StyledSection>
 
-          <StyledContent>
-            <p>{JSON.stringify(data.horoscope_data)}</p>
-          </StyledContent>
-          <StyledAdd>
-            <h2> Horoscope for the week</h2>
-            {/* <img
-              src="images/chevron.svg"
-              height={30}
-              width={30}
-              onClick={() => setShowHoroscope(!showHoroscope)}
-            ></img> */}
+        <StyledContent>
+          <p>{JSON.stringify(data.horoscope_data)}</p>
+        </StyledContent>
+        <StyledAdd>
+          <h2> Horoscope for the week</h2>
 
-            {/* {showHoroscope && (
-              <animated.p style={animationProps}> */}
-              <p>
-                {weeklyData && JSON.stringify(weeklyData.horoscope_data)}
-                </p>
-              {/* </animated.p> */}
-            {/* )} */}
-            <h2> Horoscope for the month</h2>
-            {/* <img
-              src="images/chevron.svg"
-              height={30}
-              width={30}
-              onClick={() => setShowMonthlyHoroscope(!showMonthlyHoroscope)}
-            ></img> */}
-            {/* {showMonthlyHoroscope && ( */}
-              {/* <animated.p style={monthlyAnimationProps}> */}
-              <p>
-                {monthlyData && JSON.stringify(monthlyData.horoscope_data)}
-                </p>
-              {/* </animated.p>
-            )} */}
-          </StyledAdd>
-        {/* </SlideInContent> */}
+          <p>{weeklyData && JSON.stringify(weeklyData.horoscope_data)}</p>
+
+          <h2> Horoscope for the month</h2>
+
+          <p>{monthlyData && JSON.stringify(monthlyData.horoscope_data)}</p>
+        </StyledAdd>
       </StyledWrapper>
     </>
   );
 }
-// const slideIn = keyframes`
-//   from {
-//     transform: translateY(100%);
-//   }
-//   to {
-//     transform: translateY(0);
-//   }
-// `;
-// const SlideInContent = styled.div`
-//   animation: ${slideIn} 0.7s ease-out;
-// `;
-
-// #e0ddcb p
-// #e5d6a3 #bfc7d0#b6ad8f, #eff5fb)
 
 const StyledHeader = styled.h2`
   font-size: 1.5rem;
@@ -169,12 +121,12 @@ const StyledAdd = styled.div`
   p {
     font-size: 1rem;
     font-family: didot;
-   
+
     padding: 1.3rem;
     background-color: #ffffff;
     width: 50%;
     line-height: 1.5;
-  
+
     @media (max-width: 480px) {
       width: 90%;
     }
@@ -202,7 +154,7 @@ const StyledContent = styled.div`
     background-color: #ffffff;
     width: 50%;
     line-height: 1.5;
-    
+
     @media (max-width: 480px) {
       width: 90%;
     }
@@ -225,7 +177,7 @@ const StyledSection = styled.div`
     border: 0.5px solid black;
     width: 50%;
     height: 50px;
-    background-color:  #ffffff;
+    background-color: #ffffff;
     font-family: didot;
     font-size: 1.2rem;
     color: grey;

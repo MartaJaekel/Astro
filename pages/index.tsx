@@ -28,8 +28,7 @@ export default function Home() {
       return "Gemini";
     if ((month === 6 && day >= 21) || (month === 7 && day <= 22))
       return "Cancer";
-    if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) 
-      return "Leo";
+    if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return "Leo";
     if ((month === 8 && day >= 23) || (month === 9 && day <= 22))
       return "Virgo";
     if ((month === 9 && day >= 23) || (month === 10 && day <= 22))
@@ -68,8 +67,11 @@ export default function Home() {
             <Section>
               <Intro>
                 <h1>Cosmic Insights</h1>
-                <p>Discover your path<br/>
-                 trough the stars</p>
+                <p>
+                  Discover your path
+                  <br />
+                  trough the stars
+                </p>
               </Intro>
               <Date>
                 <Input
@@ -77,6 +79,7 @@ export default function Home() {
                   placeholder="Search for your sign"
                   type="date"
                   onChange={(e) => setSelectedDate(e.target.value)}
+                  defaultValue={new window.Date().toISOString().split("T")[0]}
                 />
                 <Button onClick={handleExplore}>Explore</Button>
               </Date>
@@ -113,7 +116,6 @@ const SectionZodiac = styled.section`
   h1 {
     font-size: 2.5rem;
   }
-  
 `;
 const Section = styled.section`
   display: flex;
@@ -155,18 +157,16 @@ const StyledList = styled.ul`
   grid-template-columns: repeat(4, 1fr);
   gap: 35px;
   ${media("<=tablet")} {
- 
-   grid-template-columns: repeat(3, 1fr);
-  
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
   }
-   li {
+  li {
     aspect-ratio: 2 / 2.9;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
 `;
 const Container = styled.div`
   width: 100%;
@@ -178,6 +178,9 @@ const Container = styled.div`
     justify-content: center;
    margin: 100px;
     
+    ${media("<=tablet")} {
+      margin: 50px;
+  }
   }
  
   }

@@ -228,11 +228,11 @@ export default function Astrology() {
                 marriage, career, and spirituality were all included in these
                 categories. On a literal level, the houses represent positions
                 in the sky. The first house begins at the easternmost horizon at
-                the time of our birth. Let&apos;s consider a certain planet-the Moon.
-                Where was the Moon in the sky at the moment we were born? Was it
-                over our heads? To the east? If the Moon were on the easternmost
-                horizon or just below it, that means it would fall in our first
-                house.
+                the time of our birth. Let&apos;s consider a certain planet-the
+                Moon. Where was the Moon in the sky at the moment we were born?
+                Was it over our heads? To the east? If the Moon were on the
+                easternmost horizon or just below it, that means it would fall
+                in our first house.
               </p>
               <Div>
                 <Image
@@ -439,8 +439,8 @@ export default function Astrology() {
                 <p>
                   A natal chart, also known as a birth chart, is a snapshot of
                   the cosmos at the exact moment of your birth, offering a
-                  unique, personal blueprint of your life&apos;s energies. This chart
-                  integrates the positions of the{" "}
+                  unique, personal blueprint of your life&apos;s energies. This
+                  chart integrates the positions of the{" "}
                   <strong>Sun, Moon, and Ascendant</strong>—each symbolizing
                   core aspects of your personality—with the{" "}
                   <strong>twelve houses</strong> that represent key life areas
@@ -453,11 +453,12 @@ export default function Astrology() {
                   Neptune, Pluto). Each planet’s placement in a particular
                   zodiac sign and house adds layers to your personal story,
                   shaping how you express yourself, relate to others, and
-                  navigate life&apos;s challenges. The zodiac signs themselves imbue
-                  each area of life with distinct traits and characteristics. By
-                  understanding your natal chart, you gain a profound awareness
-                  of the cosmic forces that influence your journey, allowing you
-                  to align more deeply with your personal growth and purpose.
+                  navigate life&apos;s challenges. The zodiac signs themselves
+                  imbue each area of life with distinct traits and
+                  characteristics. By understanding your natal chart, you gain a
+                  profound awareness of the cosmic forces that influence your
+                  journey, allowing you to align more deeply with your personal
+                  growth and purpose.
                 </p>
                 <Div>
                   <Image
